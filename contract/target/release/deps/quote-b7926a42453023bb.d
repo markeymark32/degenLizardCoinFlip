@@ -1,0 +1,13 @@
+/home/cmmarke/git/DegenLizards/contract/target/release/deps/quote-b7926a42453023bb.rmeta: /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/lib.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/ext.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/format.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/ident_fragment.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/to_tokens.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/runtime.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/spanned.rs
+
+/home/cmmarke/git/DegenLizards/contract/target/release/deps/libquote-b7926a42453023bb.rlib: /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/lib.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/ext.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/format.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/ident_fragment.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/to_tokens.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/runtime.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/spanned.rs
+
+/home/cmmarke/git/DegenLizards/contract/target/release/deps/quote-b7926a42453023bb.d: /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/lib.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/ext.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/format.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/ident_fragment.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/to_tokens.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/runtime.rs /home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/spanned.rs
+
+/home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/lib.rs:
+/home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/ext.rs:
+/home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/format.rs:
+/home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/ident_fragment.rs:
+/home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/to_tokens.rs:
+/home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/runtime.rs:
+/home/cmmarke/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/spanned.rs:
