@@ -7,6 +7,7 @@
   margin-top: 30px;
   min-width: 1025px;
   padding: 0 30px;
+  color: var(--white);
 }
 
 .number-2 {
@@ -15,7 +16,7 @@
   min-width: 7px;
 }
 
-.wonder1925near-1 {
+.signer {
   letter-spacing: 0;
   margin-left: 30px;
   min-height: 16px;

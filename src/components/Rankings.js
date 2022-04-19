@@ -5,11 +5,11 @@ function Rankings(props) {
   const { number, signer, amount } = props;
 
   return (
-    <div className={`rankings-1 border-1px-white-2`}>
+    <div className="rankings-1">
       <div className="number-2 proximanova-regular-normal-white-18px">
         {number}
       </div>
-      <div className="wonder1925near-1 proximanova-extra-normal-white-16px">
+      <div className="signer proximanova-extra-normal-white-16px">
         {signer}
       </div>
       <div className="text proximanova-black-white-16px">

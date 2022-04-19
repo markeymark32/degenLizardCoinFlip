@@ -289,7 +289,7 @@ function Leaderboard(props) {
             </div>
             <div className="flex-row-1">
               <div className="stats-container">
-                <div className="stats border-1px-white-2">
+                <div className="stats ">
                   <div className="total-flips proximanova-bold-white-16px-3">
                     {totalFlips}
                   </div>
@@ -297,7 +297,7 @@ function Leaderboard(props) {
                     <h1>{formatNumber(stats.total_flips)}</h1>
                   </div>
                 </div>
-                <div className="stats-1 border-1px-white-2">
+                <div className="stats-1 ">
                   <div className="total-loss proximanova-bold-white-16px-3">
                     {totalLoss}
                   </div>
@@ -307,7 +307,7 @@ function Leaderboard(props) {
                 </div>
               </div>
               <div className="stats-container-1">
-                <div className="stats-2 border-1px-white-2">
+                <div className="stats-2 ">
                   <div className="total-won proximanova-bold-white-16px-3">
                     {totalWon}
                   </div>
@@ -315,7 +315,7 @@ function Leaderboard(props) {
                     <h1>{formatNumber(stats.total_won)}</h1>
                   </div>
                 </div>
-                <div className="stats-3 border-1px-white-2">
+                <div className="stats-3 ">
                   <div className="total-volume proximanova-bold-white-16px-3">
                     {totalVolume}
                   </div>
@@ -367,7 +367,7 @@ function Leaderboard(props) {
                   </div>
                 </Button>
               </div>
-              <div className="filter border-1px-white-2">
+              <div className="filter ">
                 <div className="net-gains proximanova-extra-normal-white-18px">
                   <FormControl style={{ m: 2, minWidth: 120 }} size="small">
                     <Select value={analytics} onChange={handleChange}>
@@ -440,7 +440,7 @@ function Leaderboard(props) {
                 className="frame-28"
                 src="https://anima-uploads.s3.amazonaws.com/projects/625b41b9ec989c0bdeba8f2a/releases/625bf347789265dc5a7f6da6/img/frame-28@2x.svg"
               />
-              <div className="frame-29 border-1px-white-2">
+              <div className="frame-29 ">
                 <div className="number">{number}</div>
               </div>
               <img
