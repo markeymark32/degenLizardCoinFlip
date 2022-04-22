@@ -192,8 +192,9 @@
 
 .stats {
   align-items: center;
-  background-color: var(--white-3);
+  background-color: #3c3c3c;
   border-radius: 10px;
+  border: 2px solid #ffffff;
   display: flex;
   flex-direction: column;
   min-height: 94px;
@@ -219,8 +220,9 @@
 
 .stats-1 {
   align-items: center;
-  background-color: var(--white-3);
+  background-color: #3c3c3c;
   border-radius: 10px;
+  border: 2px solid #ffffff;
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -256,8 +258,9 @@
 
 .stats-2 {
   align-items: flex-end;
-  background-color: var(--white-3);
+  background-color: #3c3c3c;
   border-radius: 10px;
+  border: 2px solid #ffffff;
   display: flex;
   flex-direction: column;
   min-height: 94px;
@@ -283,8 +286,9 @@
 
 .stats-3 {
   align-items: flex-end;
-  background-color: var(--white-3);
+  background-color: #3c3c3c;
   border-radius: 10px;
+  border: 2px solid #ffffff;
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -479,4 +483,3 @@
   width: 245px;
   margin: 10px;
 }
-
