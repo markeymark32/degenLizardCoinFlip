@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
 
 function RecentPlays(props) {
   const [recentPlays, setRecentPlays] = useState([]);
@@ -58,32 +61,54 @@ function RecentPlays(props) {
 
   if (recentPlays.length < 1) return <></>;
 
+  const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    padding: "20px",
+    height: "100%",
+    backgroundColor: "#3c3c3c",
+    minWidth: "75%",
+    border: "2px solid #ffffff33",
+    borderRadius: "10px",
+    position: "relative",
+    left: "34px",
+    minHeight: "106px",
+    width: "50%",
+    alignItems: "flex-end"
+  }));
+
   return (
-    <>
+    <Grid sx={{ flexDirection: "column" }}>
+      <div className="home-recent-plays proximanova-bold-white-22px">
+        Recent plays
+      </div>
       {recentPlays?.map((elm, index) => (
-        <div className="home-overlap-group1" style={{top: props.top }}>
-          <p className="flip proximanova-bold-white-16px-2">
-            <span className="proximanova-bold-white-16px-3">
-              {elm.accountId}{" "}
-            </span>
-            <span className="proximanova-light-white-16px-2">
-              flipped {elm.amount} Ⓝ and{" "}
-            </span>
-            {elm.outcome === "won" && (
-              <span className="proximanova-bold-green-16px-2">
-                {elm.outcome}{" "}
-              </span>
-            )}
-            {elm.outcome === "lost" && (
-              <span className="proximanova-bold-coral-red-16px-2">
-                {elm.outcome}{" "}
-              </span>
-            )}
-            <span className="proximanova-light-white-16px-2">{elm.time}</span>
-          </p>
+        <div style={{ top: props.top }}>
+          <Item sx={{ m: 2 }}>
+            <p style={{ minHeight: "32px", width: "205px" }}>
+              <span className="proximanova-bold-white-16px-3">
+                {elm.accountId}
+              </span>{" "}
+              <br />
+              flipped
+              {elm.amount} Ⓝ and{" "}
+              {elm.outcome === "won" && (
+                <span className="proximanova-bold-green-16px-2">
+                  {elm.outcome}{" "}
+                </span>
+              )}
+              {elm.outcome === "lost" && (
+                <span className="proximanova-bold-coral-red-16px-2">
+                  {elm.outcome} .
+                </span>
+              )}
+            </p>
+            <div style={{ textAlign: "right", minHeight: "14px" }}>
+              {elm.time}
+            </div>
+          </Item>
         </div>
       ))}
-    </>
+    </Grid>
   );
 }
 export default RecentPlays;
