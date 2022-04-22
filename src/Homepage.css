@@ -1,10 +1,9 @@
 .homepage {
-  align-items: flex-start;
   background-color: var(--mirage);
   display: flex;
-  height: 1080px;
+  height: 1500px;
   overflow: hidden;
-  width: 1440px;
+  width: 100%;
 }
 
 .home-overlap-group13 {
@@ -22,11 +21,12 @@
 }
 
 .home-overlap-group8 {
-  height: 1165px;
   left: 0;
-  position: absolute;
+  position: relative;
   top: 0;
-  width: 314px;
+  width: 314px;;
+  min-height: 100vh;
+  background-color: var(--shark);
 }
 
 .home-rectangle-2 {
@@ -76,7 +76,7 @@
   min-height: 106px;
   padding: 20px 0;
   position: relative;
-  top: 155px;
+  top: 60px;
   width: 245px;
   margin: 10px;
 }
@@ -169,7 +169,7 @@
   left: 34px;
   letter-spacing: 0;
   position: absolute;
-  top: 127px;
+  top: 20px;
 }
 
 .home-overlap-group11 {
@@ -241,8 +241,7 @@
 .coin-flip {
   letter-spacing: 0;
   margin-bottom: 1px;
-  min-height: 16px;
-  min-width: 62px;
+
   margin-left: auto;
 }
 
@@ -258,8 +257,6 @@
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  min-height: 165px;
-  width: 96px;
 }
 
 .frame {
@@ -439,4 +436,51 @@
   min-width: auto;
   padding: 0 25px;
   text-transform: none;
+}
+
+.slider {
+  color: #23ce6b; 
+  width: "100%";
+}
+
+.MuiSlider-thumb{
+  color: #23ce6b;
+}
+
+.MuiSlider-track{
+  color: #23ce6b;
+}
+
+.MuiSlider-markLabel {
+  color: #23ce6b;
+}
+
+.MuiSlider-valueLabel {
+  color: #23ce6b;
+}
+
+.MuiSlider-thumbColorPrimary {
+  color: #23ce6b;
+}
+
+.green {
+  color: #23ce6b;
+}
+
+.home-overlap-title-group {
+  height: 94px;
+  left: 625px;
+  position: absolute;
+  top: 150px;
+  align-items: center;
+  padding: 0 25px;
+  border: none;
+}
+
+.rectangle-6-title {
+  height: 94px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 504px;
 }

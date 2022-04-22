@@ -117,3 +117,11 @@
 .border-1px-white-2 {
   border: 1px solid var(--white-2);
 }
+
+html, 
+body, 
+#background { 
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #1a1c24;
+}

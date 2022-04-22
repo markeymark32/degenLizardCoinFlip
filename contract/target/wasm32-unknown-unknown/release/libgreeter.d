@@ -1,1 +1,1 @@
-/home/cmmarke/git/DegenLizards/contract/target/wasm32-unknown-unknown/release/libgreeter.rlib: /home/cmmarke/git/DegenLizards/contract/src/lib.rs
+/home/cmmarke/git/degenLizardCoinFlip/contract/target/wasm32-unknown-unknown/release/libgreeter.rlib: /home/cmmarke/git/degenLizardCoinFlip/contract/src/lib.rs

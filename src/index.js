@@ -4,7 +4,7 @@ import App from "./App";
 import { initContract } from "./utils";
 import "./globals.css";
 import "./styleguide.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ErrorBoundary from "./components/ErrorBoundary";
 
 window.nearInitPromise = initContract()

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import * as nearAPI from "near-api-js";
 import Title from "./Title";
 import "../Homepage.css";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
 import { login, logout } from "../utils";
@@ -9,6 +11,13 @@ import RecentPlays from "./RecentPlays";
 import BN from "bn.js";
 import { numberWithCommas } from "./formatValue";
 import { toNear } from "./nearValues";
+import LizardNav from "./LizardNav";
+import Container from "@mui/material/Container";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea, CardActions } from '@mui/material';
 
 const { utils, connect, providers } = nearAPI;
 
@@ -49,6 +58,11 @@ function Homepage(props) {
 
   function valueLabelFormat(value) {
     return marks.findIndex((mark) => mark.value === value) + 0.1;
+  }
+
+  function selectedSide(e){
+    console.log(e);
+    setCoin(e.target.value);
   }
 
   useEffect(() => {
@@ -128,65 +142,34 @@ function Homepage(props) {
   };
 
   return (
-    <div className="container-center-horizontal">
-      <div className="homepage screen">
-        <div className="home-overlap-group13">
-          <div className="home-overlap-group-container">
-            <div className="home-overlap-group8">
-              <div className="home-rectangle-2"></div>
-              <RecentPlays />
-              <div className="home-recent-plays proximanova-bold-white-22px">
-                {recentPlays}
+    <Container maxWidth="xl" sx={{ bgcolor: "#1a1c24" }}>
+    <Box sx={{ flexGrow: 1, bgcolor: "#1a1c24", height: "100vh", display: 'flex' }}>
+      <Grid container>
+            <Grid item xs={12}>
+              <LizardNav logo={logo_Degen} />  
+            </Grid>
+            <Grid item xs={4}>
+              <div className="home-overlap-group8">
+                <div className="rectangle-2" ></div>
+                <RecentPlays />
+                <div className="home-recent-plays proximanova-bold-white-22px">
+                  Recent plays
+                </div>
               </div>
-            </div>
-            <div className="home-overlap-group11">
-              <img className="logo_degen" alt="Degen_Logo" src={logo_Degen} />
-              <div className="coin-flip proximanova-bold-green-16px-2">
-                <a className="proximanova-bold-green-16px-2" href="/">
-                  Coinflip
-                </a>
+            </Grid>
+            <Grid item xs={6}>   
+              <div className="home-overlap-group9">
+                <h1 className="volume-flipped-6337320 proximanova-bold-white-28px-2">
+                  <span className="proximanova-bold-white-28px-22">
+                    {spanText33}
+                  </span>
+                  <span className="proximanova-bold-green-28px">
+                    {numberWithCommas(volume)} Ⓝ
+                  </span>
+                </h1>
+                <div className="rectangle-6"></div>
               </div>
-              <div className="leaderboard1 proximanova-regular-normal-white-16px">
-                <a
-                  className="proximanova-regular-normal-white-16px"
-                  href="/Leaderboard"
-                >
-                  Leaderboard
-                </a>
-              </div>
-              <div className="cta-1">
-                {window.walletConnection.isSignedIn() && (
-                  <div className="statCta">
-                    <Button onClick={logout}>
-                      <div className="proximanova-extra-normal-white-18px">
-                        {window.accountId}
-                      </div>
-                    </Button>
-                  </div>
-                )}
-                {!window.walletConnection.isSignedIn() && (
-                  <div className="statCta">
-                    <Button onClick={login}>
-                      <div className="proximanova-extra-normal-white-18px">
-                        Connect Wallet
-                      </div>
-                    </Button>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="home-overlap-group9">
-            <h1 className="volume-flipped-6337320 proximanova-bold-white-28px-2">
-              <span className="proximanova-bold-white-28px-22">
-                {spanText33}
-              </span>
-              <span className="proximanova-bold-green-28px">
-                {numberWithCommas(volume)} Ⓝ
-              </span>
-            </h1>
-            <div className="rectangle-6"></div>
-          </div>
+       
           <div className="home-overlap-group10 border-1px-white-2">
             <div className="coinflip">
               <div className="frame-container">
@@ -197,7 +180,7 @@ function Homepage(props) {
                 <div className="frame-2">
                   <Button onClick={(e) => setCoin(e.target.value)}>
                     <div className="heads proximanova-extra-normal-white-18px">
-                      {heads}
+                      Heads
                     </div>
                   </Button>
                 </div>
@@ -210,7 +193,7 @@ function Homepage(props) {
                 <div className="frame-3">
                   <Button onClick={(e) => setCoin(e.target.value)}>
                     <div className="tails proximanova-extra-normal-white-18px">
-                      {tails}
+                      Tails
                     </div>
                   </Button>
                 </div>
@@ -222,12 +205,13 @@ function Homepage(props) {
             <div className="slider">
               <div className="home-overlap-group-1">
                 <Slider
-                  style={{ color: "#009933", width: "100%" }}
+                  style={{ color: "#23ce6b", 
+                    width: "100%" }}
                   aria-label="Custom marks"
                   defaultValue={0.01}
                   getAriaValueText={valuetext}
                   step={0.1}
-                  valueLabelDisplay="off"
+                  valueLabelDisplay="on"
                   marks={marks}
                   max={10}
                   mine={0.1}
@@ -238,19 +222,29 @@ function Homepage(props) {
             <div className="cta">
               <Button onClick={(e) => CoinFlip(e)}>
                 <div className="double-or-nothing proximanova-extra-normal-white-18px">
-                  {doubleOrNothing}
+                  Double or Nothing
                 </div>
               </Button>
             </div>
           </div>
-          <Title
-            spanText1={coinFlipProps2.spanText1}
-            spanText2={coinFlipProps2.spanText2}
-            spanText3={coinFlipProps2.spanText3}
-          />
-        </div>
-      </div>
-    </div>
+          </Grid>
+           
+          <div className="home-overlap-title-group">
+          <Grid item xs={12} sx={{display:"flex", minWidth:"500px"}}>
+            <h1 className="proximanova-bold-white-28px-2">
+              <span className="proximanova-bold-white-28px-22">
+                Welcome to{" "}
+              </span>
+              <span className="proximanova-bold-green-28px">
+                DEGEN Lizards{" "}
+              </span>
+              <span className="proximanova-bold-white-28px-22">Coin Flip!</span>
+            </h1>
+            </Grid>
+          </div>
+      </Grid>
+    </Box>
+    </Container>
   );
 }
 
