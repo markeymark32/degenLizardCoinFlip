@@ -204,20 +204,20 @@ function Leaderboard(props) {
       <Container maxWidth="xl" sx={{ bgcolor: "#1a1c24" }}>
       <Box sx={{ flexGrow: 1, bgcolor: "#1a1c24", height: "100vh", display: 'flex' }}>
         <Grid container>
+        <Grid item xs={12}>
+              <LizardNav logo={logo_Degen} />  
+            </Grid>
         <div className="overlap-group13">
           <div className="overlap-group-container">
             <div className="overlap-group10">
               <div className="home-rectangle-2">
                 
-                <RecentPlays top={160}/>
+                <RecentPlays top={60}/>
               </div>
-              <div className="recent-plays proximanova-bold-white-22px" style={{top: "1px", position: "relative"}}>
+              <div className="recent-plays proximanova-bold-white-22px" style={{top: "20px", position: "absolute"}}>
                 Recent Plays
               </div>
             </div>
-            <Grid item xs={12}>
-              <LizardNav logo={logo_Degen} />  
-            </Grid>
           <div className="degen_stats">
             <h1 className="title proximanova-bold-white-28px-22">{title}</h1>
             <div className="flex-row">
