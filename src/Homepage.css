@@ -1,60 +1,13 @@
 .homepage {
   background-color: var(--mirage);
   display: flex;
-  height: 1500px;
-  overflow: hidden;
-  width: 100%;
-}
-
-.home-overlap-group13 {
-  height: 1165px;
-  position: relative;
-  width: 1444px;
-}
-
-.home-overlap-group-container {
-  height: 1165px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 1444px;
-}
-
-.home-overlap-group8 {
-  left: 0;
-  position: relative;
-  top: 0;
-  width: 314px;;
-  min-height: 100vh;
-  background-color: var(--shark);
-}
-
-.home-rectangle-2 {
-  background-color: var(--shark);
-  height: 1078px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 314px;
-}
-
-.home-overlap-group {
-  align-items: flex-start;
-  background-color: var(--white-3);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  left: 34px;
-  min-height: 106px;
-  padding: 19px;
-  position: absolute;
-  top: 177px;
-  width: 245px;
+  height: 100%;
+  width: auto;
 }
 
 .flip {
   letter-spacing: 0;
-  min-height: 32px;
+  min-height: auto;
   width: 205px;
 }
 
@@ -71,117 +24,17 @@
   background-image: url(https://anima-uploads.s3.amazonaws.com/projects/625b41b9ec989c0bdeba8f2a/releases/625bf460e3f2510d25456cbc/img/rectangle-4@2x.svg);
   background-size: 100% 100%;
   display: flex;
-  flex-direction: column;
   left: 34px;
   min-height: 106px;
   padding: 20px 0;
   position: relative;
-  top: 60px;
-  width: 245px;
-  margin: 10px;
-}
-
-.home-overlap-group2 {
-  align-items: flex-start;
-  background-color: var(--white-3);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  left: 34px;
-  min-height: 106px;
-  padding: 19px;
-  position: absolute;
-  top: 807px;
-  width: 245px;
-}
-
-.home-overlap-group3 {
-  align-items: flex-start;
-  background-color: var(--white-3);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  left: 34px;
-  min-height: 106px;
-  padding: 19px;
-  position: absolute;
-  top: 933px;
-  width: 245px;
-}
-
-.home-overlap-group4 {
-  align-items: flex-start;
-  background-color: var(--white-3);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  left: 34px;
-  min-height: 106px;
-  padding: 19px;
-  position: absolute;
-  top: 1059px;
-  width: 245px;
-}
-
-.home-overlap-group5 {
-  align-items: flex-start;
-  background-color: var(--white-3);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  left: 34px;
-  min-height: 106px;
-  padding: 19px;
-  position: absolute;
-  top: 303px;
-  width: 245px;
-}
-
-.home-overlap-group6 {
-  align-items: flex-start;
-  background-color: var(--white-3);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  left: 34px;
-  min-height: 106px;
-  padding: 19px;
-  position: absolute;
-  top: 555px;
-  width: 245px;
-}
-
-.home-overlap-group7 {
-  align-items: flex-start;
-  background-color: var(--white-3);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  left: 34px;
-  min-height: 106px;
-  padding: 19px;
-  position: absolute;
-  top: 681px;
-  width: 245px;
+  width: 75%;
 }
 
 .home-recent-plays {
   left: 34px;
   letter-spacing: 0;
-  position: absolute;
-  top: 20px;
-}
-
-.home-overlap-group11 {
-  align-items: center;
-  background-color: var(--shark-2);
-  display: flex;
-  height: 87px;
-  left: 0;
-  min-width: 1440px;
-  padding: 13px 50px;
-  position: absolute;
-  top: 0;
+  position: relative;
 }
 
 .logo_degen {
@@ -199,12 +52,13 @@
 }
 
 .home-overlap-group9 {
+  align-items: center;
+  flex-direction: column;
+  left: 270px;
+  position: relative;
+  width: 550px;
+  margin-top: 40px;
   border-radius: 20px;
-  height: 94px;
-  left: 625px;
-  position: absolute;
-  top: 753px;
-  width: 504px;
 }
 
 .volume-flipped-6337320 {
@@ -230,19 +84,11 @@
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  left: 625px;
+  left: 270px;
   min-height: 484px;
   padding: 60px 107px;
-  position: absolute;
-  top: 209px;
+  position: relative;
   width: 504px;
-}
-
-.coin-flip {
-  letter-spacing: 0;
-  margin-bottom: 1px;
-
-  margin-left: auto;
 }
 
 .coinflip {
@@ -276,17 +122,6 @@
   padding: 0 17px;
 }
 
-.heads {
-  letter-spacing: 0;
-  min-height: 18px;
-  min-width: 53px;
-  color: var(--white);
-  font-family: var(--font-family-proxima_nova-bold);
-  font-size: var(--font-size-m);
-  font-style: normal;
-  font-weight: 700;
-}
-
 .frame-container-1 {
   align-items: flex-start;
   display: flex;
@@ -307,16 +142,6 @@
   margin-top: 28px;
   min-width: 87px;
   padding: 0 24px;
-}
-
-.tails {
-  color: var(--green);
-  font-family: var(--font-family-proxima_nova-extrabold);
-  font-size: var(--font-size-l);
-  font-weight: 400;
-  letter-spacing: 0;
-  min-height: 18px;
-  min-width: 38px;
 }
 
 .select-the-amount-to-flip {
@@ -345,45 +170,6 @@
   width: 259px;
 }
 
-.line-1 {
-  height: 2px;
-  left: 0;
-  position: absolute;
-  top: 7px;
-  width: 259px;
-}
-
-.ellipse-1 {
-  background-color: var(--green);
-  border-radius: 7.5px;
-  height: 15px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 15px;
-}
-
-.text-container {
-  align-items: flex-start;
-  display: flex;
-  height: 16px;
-  margin-right: 4px;
-  margin-top: 15px;
-  min-width: 285px;
-}
-
-.text-1 {
-  letter-spacing: 0;
-  min-height: 16px;
-  min-width: 47px;
-}
-
-.text-2 {
-  letter-spacing: 0;
-  margin-left: 203px;
-  min-height: 16px;
-}
-
 .cta {
   align-items: center;
   background-color: var(--green);
@@ -408,49 +194,6 @@
   font-weight: 700;
 }
 
-.button {
-  letter-spacing: 0;
-  min-height: 18px;
-  min-width: 153px;
-  text-align: center;
-  text-transform: none;
-}
-
-.buttonCTA {
-  align-items: center;
-  background-color: var(--green);
-  border-radius: 5px;
-  display: flex;
-  height: 38px;
-  background-color: var(--green);
-}
-
-.statCta {
-  align-items: center;
-  background-color: var(--green);
-  border-radius: 5px;
-  display: flex;
-  height: 38px;
-  margin-bottom: 3px;
-  margin-left: 40px;
-  min-width: auto;
-  padding: 0 25px;
-  text-transform: none;
-}
-
-.slider {
-  color: #23ce6b; 
-  width: "100%";
-}
-
-.MuiSlider-thumb{
-  color: #23ce6b;
-}
-
-.MuiSlider-track{
-  color: #23ce6b;
-}
-
 .MuiSlider-markLabel {
   color: #23ce6b;
 }
@@ -459,28 +202,11 @@
   color: #23ce6b;
 }
 
-.MuiSlider-thumbColorPrimary {
-  color: #23ce6b;
-}
-
-.green {
-  color: #23ce6b;
-}
-
 .home-overlap-title-group {
-  height: 94px;
-  left: 625px;
-  position: absolute;
-  top: 150px;
   align-items: center;
-  padding: 0 25px;
-  border: none;
-}
-
-.rectangle-6-title {
-  height: 94px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 504px;
+  flex-direction: column;
+  left: 270px;
+  position: relative;
+  width: 550px;
+  padding: 30px;
 }
