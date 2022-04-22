@@ -23,16 +23,7 @@ function Homepage(props) {
   const [status, setStatus] = useState("");
   const [showLoading, setShowLoading] = useState();
 
-  const {
-    recentPlays,
-    logo_Degen,
-    spanText33,
-    heads,
-    tails,
-    selectTheAmountToFlip,
-    doubleOrNothing,
-    coinFlipProps2
-  } = props;
+  const { logo_Degen, selectTheAmountToFlip } = props;
 
   const marks = [
     {
@@ -53,7 +44,7 @@ function Homepage(props) {
     return marks.findIndex((mark) => mark.value === value) + 0.1;
   }
 
-  function selectedSide(e){
+  function selectedSide(e) {
     console.log(e);
     setCoin(e.target.value);
   }
@@ -136,95 +127,33 @@ function Homepage(props) {
 
   return (
     <Container maxWidth="xl" sx={{ bgcolor: "#1a1c24" }}>
-    <Box sx={{ flexGrow: 1, bgcolor: "#1a1c24", height: "100vh", display: 'flex' }}>
-      <Grid container>
-            <Grid item xs={12}>
-              <LizardNav logo={logo_Degen} />  
-            </Grid>
-            <Grid item xs={4}>
-              <div className="home-overlap-group8">
-                <div className="rectangle-2" ></div>
-                <RecentPlays />
-                <div className="home-recent-plays proximanova-bold-white-22px">
-                  Recent plays
-                </div>
-              </div>
-            </Grid>
-            <Grid item xs={6}>   
-              <div className="home-overlap-group9">
-                <h1 className="volume-flipped-6337320 proximanova-bold-white-28px-2">
-                  <span className="proximanova-bold-white-28px-22">
-                    {spanText33}
-                  </span>
-                  <span className="proximanova-bold-green-28px">
-                    {numberWithCommas(volume)} Ⓝ
-                  </span>
-                </h1>
-                <div className="rectangle-6"></div>
-              </div>
-       
-          <div className="home-overlap-group10 border-1px-white-2">
-            <div className="coinflip">
-              <div className="frame-container">
-                <img
-                  className="frame"
-                  src="https://anima-uploads.s3.amazonaws.com/projects/625b41b9ec989c0bdeba8f2a/releases/625bf460e3f2510d25456cbc/img/frame-1@2x.svg"
-                />
-                <div className="frame-2">
-                  <Button onClick={(e) => setCoin(e.target.value)}>
-                    <div className="heads proximanova-extra-normal-white-18px">
-                      Heads
-                    </div>
-                  </Button>
-                </div>
-              </div>
-              <div className="frame-container-1">
-                <img
-                  className="frame"
-                  src="https://anima-uploads.s3.amazonaws.com/projects/625b41b9ec989c0bdeba8f2a/releases/625bf460e3f2510d25456cbc/img/frame@2x.svg"
-                />
-                <div className="frame-3">
-                  <Button onClick={(e) => setCoin(e.target.value)}>
-                    <div className="tails proximanova-extra-normal-white-18px">
-                      Tails
-                    </div>
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <p className="select-the-amount-to-flip proximanova-bold-white-16px-3">
-              {selectTheAmountToFlip}
-            </p>
-            <div className="slider">
-              <div className="home-overlap-group-1">
-                <Slider
-                  style={{ color: "#23ce6b", 
-                    width: "100%" }}
-                  aria-label="Custom marks"
-                  defaultValue={0.01}
-                  getAriaValueText={valuetext}
-                  step={0.1}
-                  valueLabelDisplay="on"
-                  marks={marks}
-                  max={10}
-                  mine={0.1}
-                  onChange={(e) => setSelectedAmount(Number(e.target.value))}
-                />
-              </div>
-            </div>
-            <div className="cta">
-              <Button onClick={(e) => CoinFlip(e)}>
-                <div className="double-or-nothing proximanova-extra-normal-white-18px">
-                  Double or Nothing
-                </div>
-              </Button>
-            </div>
-          </div>
+      <Box
+        sx={{
+          flexGrow: 1,
+          bgcolor: "#1a1c24",
+          height: "100vh",
+          display: "flex"
+        }}
+      >
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <LizardNav logo={logo_Degen} />
           </Grid>
-           
-          <div className="home-overlap-title-group">
-          <Grid item xs={12} sx={{display:"flex", minWidth:"500px"}}>
-            <h1 className="proximanova-bold-white-28px-2">
+          <Grid
+            item
+            xs={3}
+            style={{ backgroundColor: "#1f2029", maxWidth: "100%" }}
+          >
+            <RecentPlays />
+          </Grid>
+          <Grid
+            item
+            xs={6}
+            alignItems="center"
+            justifyContent="center"
+            style={{ minHeight: "100vh" }}
+          >
+            <h1 className="home-overlap-title-group proximanova-bold-white-28px-2">
               <span className="proximanova-bold-white-28px-22">
                 Welcome to{" "}
               </span>
@@ -233,10 +162,76 @@ function Homepage(props) {
               </span>
               <span className="proximanova-bold-white-28px-22">Coin Flip!</span>
             </h1>
-            </Grid>
-          </div>
-      </Grid>
-    </Box>
+            <div className="home-overlap-group10 border-1px-white-2">
+              <div className="coinflip">
+                <div className="frame-container">
+                  <img
+                    className="frame"
+                    src="https://anima-uploads.s3.amazonaws.com/projects/625b41b9ec989c0bdeba8f2a/releases/625bf460e3f2510d25456cbc/img/frame-1@2x.svg"
+                    alt="Heads"
+                  />
+                  <div className="frame-2">
+                    <Button onClick={(e) => setCoin(e.target.value)}>
+                      <div className="heads proximanova-extra-normal-white-18px">
+                        Heads
+                      </div>
+                    </Button>
+                  </div>
+                </div>
+                <div className="frame-container-1">
+                  <img
+                    className="frame"
+                    src="https://anima-uploads.s3.amazonaws.com/projects/625b41b9ec989c0bdeba8f2a/releases/625bf460e3f2510d25456cbc/img/frame@2x.svg"
+                    alt="Tails"
+                  />
+                  <div className="frame-3">
+                    <Button onClick={(e) => setCoin(e.target.value)}>
+                      <div className="tails proximanova-extra-normal-white-18px">
+                        Tails
+                      </div>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              <p className="select-the-amount-to-flip proximanova-bold-white-16px-3">
+                {selectTheAmountToFlip}
+              </p>
+              <div className="slider">
+                <div className="home-overlap-group-1">
+                  <Slider
+                    style={{ color: "#23ce6b", width: "100%" }}
+                    aria-label="Custom marks"
+                    defaultValue={0.01}
+                    getAriaValueText={valuetext}
+                    step={0.1}
+                    valueLabelDisplay="on"
+                    marks={marks}
+                    max={10}
+                    mine={0.1}
+                    onChange={(e) => setSelectedAmount(Number(e.target.value))}
+                  />
+                </div>
+              </div>
+              <div className="cta">
+                <Button onClick={(e) => CoinFlip(e)}>
+                  <div className="double-or-nothing proximanova-extra-normal-white-18px">
+                    Double or Nothing
+                  </div>
+                </Button>
+              </div>
+            </div>
+            <div className="home-overlap-group9">
+              <h1 className="volume-flipped-6337320 proximanova-bold-white-28px-2">
+                <span className="proximanova-bold-white-28px-22">Volume: </span>
+                <span className="proximanova-bold-green-28px">
+                  {numberWithCommas(volume)} Ⓝ
+                </span>
+              </h1>
+              <div className="rectangle-6"></div>
+            </div>
+          </Grid>
+        </Grid>
+      </Box>
     </Container>
   );
 }
