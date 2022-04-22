@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from "react";
 import * as nearAPI from "near-api-js";
-import Title from "./Title";
 import "../Homepage.css";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
-import { login, logout } from "../utils";
 import RecentPlays from "./RecentPlays";
 import BN from "bn.js";
 import { numberWithCommas } from "./formatValue";
 import { toNear } from "./nearValues";
 import LizardNav from "./LizardNav";
 import Container from "@mui/material/Container";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material';
 
 const { utils, connect, providers } = nearAPI;
 

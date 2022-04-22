@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function RecentPlays() {
+function RecentPlays(props) {
   const [recentPlays, setRecentPlays] = useState([]);
 
   function timeDifference(current, previous) {
@@ -61,7 +61,7 @@ function RecentPlays() {
   return (
     <>
       {recentPlays?.map((elm, index) => (
-        <div className="home-overlap-group1">
+        <div className="home-overlap-group1" style={{top: props.top }}>
           <p className="flip proximanova-bold-white-16px-2">
             <span className="proximanova-bold-white-16px-3">
               {elm.accountId}{" "}

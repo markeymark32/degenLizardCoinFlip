@@ -3,8 +3,11 @@ import Rankings from "./Rankings";
 import "../Leaderboard.css";
 import RecentPlays from "./RecentPlays";
 import Button from "@mui/material/Button";
-import { login, logout } from "../utils";
 import { FormControl, MenuItem, Select } from "@material-ui/core";
+import LizardNav from "./LizardNav";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 
 function Leaderboard(props) {
   const LeadTypes = [
@@ -198,54 +201,23 @@ function Leaderboard(props) {
   } = props;
 
   return (
-    <div className="container-center-horizontal">
-      <div className="leaderboard screen">
+      <Container maxWidth="xl" sx={{ bgcolor: "#1a1c24" }}>
+      <Box sx={{ flexGrow: 1, bgcolor: "#1a1c24", height: "100vh", display: 'flex' }}>
+        <Grid container>
         <div className="overlap-group13">
           <div className="overlap-group-container">
             <div className="overlap-group10">
               <div className="home-rectangle-2">
-                <RecentPlays />
+                
+                <RecentPlays top={160}/>
               </div>
-              <div className="recent-plays proximanova-bold-white-22px">
-                {recentPlays}
+              <div className="recent-plays proximanova-bold-white-22px" style={{top: "1px", position: "relative"}}>
+                Recent Plays
               </div>
             </div>
-            <div className="overlap-group11">
-              <img className="logo_degen" alt="Degen_Logo" src={logo_Degen} />
-              <div className="coin-flip proximanova-regular-normal-white-16px">
-                <a className="proximanova-regular-normal-white-16px" href="/">
-                  Coinflip
-                </a>
-              </div>
-              <div className="leaderboard1 proximanova-bold-green-16px-2">
-                <a
-                  className="proximanova-bold-green-16px-2"
-                  href="/Leaderboard"
-                >
-                  Leaderboard
-                </a>
-              </div>
-
-              {window.walletConnection.isSignedIn() && (
-                <div className="statCta">
-                  <Button onClick={logout}>
-                    <div className="proximanova-extra-normal-white-18px">
-                      {window.accountId}
-                    </div>
-                  </Button>
-                </div>
-              )}
-              {!window.walletConnection.isSignedIn() && (
-                <div className="statCta">
-                  <Button onClick={login}>
-                    <div className="proximanova-extra-normal-white-18px">
-                      Connect Wallet
-                    </div>
-                  </Button>
-                </div>
-              )}
-            </div>
-          </div>
+            <Grid item xs={12}>
+              <LizardNav logo={logo_Degen} />  
+            </Grid>
           <div className="degen_stats">
             <h1 className="title proximanova-bold-white-28px-22">{title}</h1>
             <div className="flex-row">
@@ -453,7 +425,7 @@ function Leaderboard(props) {
           </div>
         </div>
       </div>
-    </div>
+</Grid></Box></Container>
   );
 }
 
