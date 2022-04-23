@@ -130,6 +130,7 @@
   border: 1px solid var(--white-2);
 }
 
+#root,
 html,
 body,
 #background {
