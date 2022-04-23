@@ -182,21 +182,6 @@ function Leaderboard(props) {
 
   const {
     logo_Degen,
-    title,
-    all1,
-    currentMonth1,
-    currentDay1,
-    totalFlips,
-    totalLoss,
-    totalWon,
-    totalVolume,
-    leaderboard,
-    all2,
-    currentMonth2,
-    currentDay2,
-    surname,
-    number,
-    of120
   } = props;
 
   return (
@@ -209,20 +194,27 @@ function Leaderboard(props) {
           display: "flex"
         }}
       >
-        <Grid container spacing={2}>
+        <Grid container >
           <Grid item xs={12}>
             <LizardNav logo={logo_Degen} />
           </Grid>
-          <div className="overlap-group13">
-            <div className="overlap-group-container">
-              <div className="overlap-group10">
-                <div className="home-rectangle-2">
-                  <RecentPlays top={70} />
-                </div>
-              </div>
+          <Grid
+            item
+            xs={3}
+            style={{ backgroundColor: "#1f2029", maxWidth: "100%" }}
+          >
+            <RecentPlays />
+          </Grid>
+          <Grid
+            item
+            xs={6}
+            alignItems="center"
+            justifyContent="center"
+            style={{ minHeight: "100vh" }}
+          >
               <div className="degen_stats">
                 <h1 className="title proximanova-bold-white-28px-22">
-                  {title}
+                  DEGEN Lizards Coin Flip
                 </h1>
                 <div className="flex-row">
                   <div className="statCta">
@@ -232,7 +224,7 @@ function Leaderboard(props) {
                       }
                     >
                       <div className="proximanova-extra-normal-white-18px">
-                        {all1}
+                        All
                       </div>
                     </Button>
                   </div>
@@ -246,7 +238,7 @@ function Leaderboard(props) {
                       }
                     >
                       <div className="proximanova-extra-normal-white-18px">
-                        {currentMonth1}
+                        Current Month
                       </div>
                     </Button>
                   </div>
@@ -260,7 +252,7 @@ function Leaderboard(props) {
                       }
                     >
                       <div className="proximanova-extra-normal-white-18px">
-                        {currentDay1}
+                        Current Day
                       </div>
                     </Button>
                   </div>
@@ -269,7 +261,7 @@ function Leaderboard(props) {
                   <div className="stats-container">
                     <div className="stats ">
                       <div className="total-flips proximanova-bold-white-16px-3">
-                        {totalFlips}
+                        Total Flips
                       </div>
                       <div className="text-1 proximanova-bold-green-28px ">
                         <h1>{formatNumber(stats.total_flips)}</h1>
@@ -277,7 +269,7 @@ function Leaderboard(props) {
                     </div>
                     <div className="stats-1 ">
                       <div className="total-loss proximanova-bold-white-16px-3">
-                        {totalLoss}
+                        Total Loss
                       </div>
                       <div className="text-1 proximanova-bold-green-28px ">
                         <h1>{formatNumber(stats.total_loss)}</h1>
@@ -287,7 +279,7 @@ function Leaderboard(props) {
                   <div className="stats-container-1">
                     <div className="stats-2 ">
                       <div className="total-won proximanova-bold-white-16px-3">
-                        {totalWon}
+                        Total Won
                       </div>
                       <div className="text-3 proximanova-bold-green-28px ">
                         <h1>{formatNumber(stats.total_won)}</h1>
@@ -295,7 +287,7 @@ function Leaderboard(props) {
                     </div>
                     <div className="stats-3 ">
                       <div className="total-volume proximanova-bold-white-16px-3">
-                        {totalVolume}
+                        Total Volume
                       </div>
                       <div className="text-4 proximanova-bold-green-28px">
                         <h1>{formatNumber(stats.total_volume)}</h1>
@@ -306,7 +298,7 @@ function Leaderboard(props) {
               </div>
               <div className="leaderboard-1">
                 <div className="leaderboard-2 proximanova-bold-white-28px-22">
-                  {leaderboard}
+                  Leaderboard
                 </div>
                 <div className="flex-row">
                   <div className="statCta">
@@ -317,7 +309,7 @@ function Leaderboard(props) {
                       }}
                     >
                       <div className="proximanova-extra-normal-white-18px">
-                        {all2}
+                        All
                       </div>
                     </Button>
                   </div>
@@ -329,7 +321,7 @@ function Leaderboard(props) {
                       }}
                     >
                       <div className="proximanova-extra-normal-white-18px">
-                        {currentMonth2}
+                        Current Month
                       </div>
                     </Button>
                   </div>
@@ -341,99 +333,61 @@ function Leaderboard(props) {
                       }}
                     >
                       <div className="proximanova-extra-normal-white-18px">
-                        {currentDay2}
+                        Current Day
                       </div>
                     </Button>
                   </div>
-                  <div className="filter ">
-                    <div className="net-gains proximanova-extra-normal-white-18px">
-                      <FormControl style={{ m: 2, minWidth: 120 }} size="small">
-                        <Select value={analytics} onChange={handleChange}>
-                          <MenuItem
-                            value={"Net Gains"}
-                            style={{ fontSize: "14px" }}
-                          >
-                            Net Gains
-                          </MenuItem>
-                          <MenuItem
-                            value={"Win Streaks"}
-                            style={{ fontSize: "14px" }}
-                          >
-                            Win Streaks
-                          </MenuItem>
-                          <MenuItem
-                            value={"Loss Streaks"}
-                            style={{ fontSize: "14px" }}
-                          >
-                            Loss Streaks
-                          </MenuItem>
-                          <MenuItem
-                            value={"Volume"}
-                            style={{ fontSize: "14px" }}
-                          >
-                            Volume
-                          </MenuItem>
-                        </Select>
-                      </FormControl>
+                  <div className="filter">
+                    <div className="net-gains ">
+                    <select className="selectpicker statCta proximanova-extra-normal-white-18px" value={analytics} onChange={handleChange}>
+                        <option>Net Gains</option>
+                        <option>Win Streaks</option>
+                        <option>Loss Streaks</option>
+                        <option>Volume</option>
+                    </select>
                     </div>
                   </div>
                 </div>
-                {selectedLeadboard.value === "net_gains" &&
-                  leadNetGain.map((lead, index) => (
-                    <Rankings
-                      key={index + 1}
-                      number={index + 1}
-                      signer={lead.signer_id}
-                      amount={formatNumber(lead.net)}
-                    />
-                  ))}
-                {selectedLeadboard.value === "volume" &&
-                  leadVolume.map((lead, index) => (
-                    <Rankings
-                      key={index + 1}
-                      number={index + 1}
-                      signer={lead.signer_id}
-                      amount={formatNumber(lead.volume)}
-                    />
-                  ))}
-                {selectedLeadboard.value === "win_streaks" &&
-                  winStreak.map((lead, index) => (
-                    <Rankings
-                      key={index + 1}
-                      number={index + 1}
-                      signer={lead.signer_id}
-                      amount={formatNumber(lead.streak)}
-                    />
-                  ))}
-                {selectedLeadboard.value === "loss_streaks" &&
-                  lossStreak.map((lead, index) => (
-                    <Rankings
-                      key={index + 1}
-                      number={index + 1}
-                      signer={lead.signer_id}
-                      amount={formatNumber(lead.streak)}
-                    />
-                  ))}
-                <div className="pagination proximanova-regular-normal-white-18px">
-                  <div className="surname">{surname}</div>
-                  <img
-                    alt="frame"
-                    className="frame-28"
-                    src="https://anima-uploads.s3.amazonaws.com/projects/625b41b9ec989c0bdeba8f2a/releases/625bf347789265dc5a7f6da6/img/frame-28@2x.svg"
-                  />
-                  <div className="frame-29 ">
-                    <div className="number">{number}</div>
-                  </div>
-                  <img
-                    alt="frame"
-                    className="frame-30"
-                    src="https://anima-uploads.s3.amazonaws.com/projects/625b41b9ec989c0bdeba8f2a/releases/625bf347789265dc5a7f6da6/img/frame-30@2x.svg"
-                  />
-                  <div className="of-120">{of120}</div>
-                </div>
+                <Grid item xs={9}>
+                  {selectedLeadboard.value === "net_gains" &&
+                    leadNetGain.map((lead, index) => (
+                      <Rankings
+                        key={index + 1}
+                        number={index + 1}
+                        signer={lead.signer_id}
+                        amount={formatNumber(lead.net)}
+                      />
+                    ))}
+                  {selectedLeadboard.value === "volume" &&
+                    leadVolume.map((lead, index) => (
+                      <Rankings
+                        key={index + 1}
+                        number={index + 1}
+                        signer={lead.signer_id}
+                        amount={formatNumber(lead.volume)}
+                      />
+                    ))}
+                  {selectedLeadboard.value === "win_streaks" &&
+                    winStreak.map((lead, index) => (
+                      <Rankings
+                        key={index + 1}
+                        number={index + 1}
+                        signer={lead.signer_id}
+                        amount={formatNumber(lead.streak)}
+                      />
+                    ))}
+                  {selectedLeadboard.value === "loss_streaks" &&
+                    lossStreak.map((lead, index) => (
+                      <Rankings
+                        key={index + 1}
+                        number={index + 1}
+                        signer={lead.signer_id}
+                        amount={formatNumber(lead.streak)}
+                      />
+                    ))}</Grid>
+                
               </div>
-            </div>
-          </div>
+            </Grid>
         </Grid>
       </Box>
     </Container>

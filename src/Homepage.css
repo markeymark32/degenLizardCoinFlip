@@ -57,7 +57,7 @@
   left: 270px;
   position: relative;
   width: 550px;
-  margin-top: 40px;
+  margin-top: 70px;
   border-radius: 20px;
 }
 
@@ -89,6 +89,7 @@
   padding: 60px 107px;
   position: relative;
   width: 504px;
+  top: 25px;
 }
 
 .coinflip {
@@ -195,11 +196,15 @@
 }
 
 .MuiSlider-markLabel {
-  color: #23ce6b;
+  color: #23ce6b !important;
 }
 
 .MuiSlider-valueLabel {
-  color: #23ce6b;
+  color: #23ce6b !important;
+}
+
+.css-yafthl-MuiSlider-markLabel{
+  color: #23ce6b !important;
 }
 
 .home-overlap-title-group {
@@ -209,4 +214,5 @@
   position: relative;
   width: 550px;
   padding: 30px;
+  top: 25px;
 }

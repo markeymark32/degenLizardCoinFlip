@@ -77,7 +77,7 @@ function RecentPlays(props) {
   }));
 
   return (
-    <Grid sx={{ flexDirection: "column" }}>
+    <Grid sx={{ flexDirection: "column", marginTop: "50px"}}>
       <div className="home-recent-plays proximanova-bold-white-22px">
         Recent plays
       </div>
@@ -89,8 +89,8 @@ function RecentPlays(props) {
                 {elm.accountId}
               </span>{" "}
               <br />
-              flipped
-              {elm.amount} Ⓝ and{" "}
+              <span className="proximanova-light-white-16px-2">flipped
+              {elm.amount} Ⓝ and{" "}</span>
               {elm.outcome === "won" && (
                 <span className="proximanova-bold-green-16px-2">
                   {elm.outcome}{" "}
@@ -103,7 +103,7 @@ function RecentPlays(props) {
               )}
             </p>
             <div style={{ textAlign: "right", minHeight: "14px" }}>
-              {elm.time}
+            <span className="proximanova-light-white-16px-2">{elm.time}</span>
             </div>
           </Item>
         </div>
