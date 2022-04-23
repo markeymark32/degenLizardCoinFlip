@@ -216,3 +216,18 @@
   padding: 30px;
   top: 25px;
 }
+
+.green {
+  background-color: #23ce6b !important;
+  border-color: #23ce6b !important;
+}
+
+.black {
+  background-color: black !important;
+  border-color: #23ce6b !important;
+}
+
+btn-check:active+.btn-primary, .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
+  background-color: #23ce6b !important;
+  border-color: #23ce6b !important;
+}

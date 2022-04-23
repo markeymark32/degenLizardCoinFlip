@@ -4,7 +4,7 @@ import "../Homepage.css";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Slider from "@mui/material/Slider";
-import Button from "@mui/material/Button";
+import { Button } from "react-bootstrap";
 import RecentPlays from "./RecentPlays";
 import BN from "bn.js";
 import { numberWithCommas } from "./formatValue";
@@ -35,6 +35,7 @@ function Homepage(props) {
   const [showLoading, setShowLoading] = useState();
   const [betsArray, setBetsArray] = useState(bets);
   const [flipStatus, setFlipStatus] = useState("");
+  const [isHeads, setHeads] = useState("true");
 
   useEffect(async () => {
     const maxBetFinal = 10;
@@ -166,14 +167,12 @@ function Homepage(props) {
           </Grid>
           <Grid
             item
-            xs={3}
             style={{ backgroundColor: "#1f2029", maxWidth: "100%" }}
           >
             <RecentPlays />
           </Grid>
           <Grid
             item
-            xs={6}
             alignItems="center"
             justifyContent="center"
             style={{ minHeight: "100vh" }}
@@ -210,13 +209,10 @@ function Homepage(props) {
                       src="https://anima-uploads.s3.amazonaws.com/projects/625b41b9ec989c0bdeba8f2a/releases/625bf460e3f2510d25456cbc/img/frame-1@2x.svg"
                       alt="Heads"
                     />
-                    <div className="frame-2">
-                      <Button value="heads" onClick={() => setCoin("heads")}>
-                        <div className="heads proximanova-extra-normal-white-18px">
+                    
+                      <Button value="heads" onClick={() => setCoin("heads")} className={`frame-2 proximanova-extra-normal-white-18px ${coin === "heads" ? "active green" : "black"}`}>
                           Heads
-                        </div>
                       </Button>
-                    </div>
                   </div>
                   <div className="frame-container-1">
                     <img
@@ -224,13 +220,9 @@ function Homepage(props) {
                       src="https://anima-uploads.s3.amazonaws.com/projects/625b41b9ec989c0bdeba8f2a/releases/625bf460e3f2510d25456cbc/img/frame@2x.svg"
                       alt="Tails"
                     />
-                    <div className="frame-3">
-                      <Button value="tails" onClick={() => setCoin("tails")}>
-                        <div className="tails proximanova-extra-normal-white-18px">
+                      <Button value="tails" onClick={() => setCoin("tails")} className={`frame-3 proximanova-extra-normal-white-18px ${coin === "tails" ? "active green" : "black"}`}>
                           Tails
-                        </div>
                       </Button>
-                    </div>
                   </div>
                 </div>
                 <p className="select-the-amount-to-flip proximanova-bold-white-16px-3">
@@ -252,13 +244,9 @@ function Homepage(props) {
                     />
                   </div>
                 </div>
-                <div className="cta">
-                  <Button onClick={(e) => CoinFlip(e)}>
-                    <div className="double-or-nothing proximanova-extra-normal-white-18px">
+                  <Button onClick={(e) => CoinFlip(e)} className="cta double-or-nothing proximanova-extra-normal-white-18px green">
                       Double or Nothing
-                    </div>
                   </Button>
-                </div>
               </div>
               <div className="home-overlap-group9">
                 <h1 className="volume-flipped-6337320 proximanova-bold-white-28px-2">

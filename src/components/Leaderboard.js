@@ -8,6 +8,7 @@ import LizardNav from "./LizardNav";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 
 function Leaderboard(props) {
   const LeadTypes = [
@@ -200,14 +201,12 @@ function Leaderboard(props) {
           </Grid>
           <Grid
             item
-            xs={3}
-            style={{ backgroundColor: "#1f2029", maxWidth: "100%" }}
+            style={{ backgroundColor: "#1f2029" }}
           >
             <RecentPlays />
           </Grid>
           <Grid
             item
-            xs={6}
             alignItems="center"
             justifyContent="center"
             style={{ minHeight: "100vh" }}
@@ -351,12 +350,14 @@ function Leaderboard(props) {
                 <Grid item xs={9}>
                   {selectedLeadboard.value === "net_gains" &&
                     leadNetGain.map((lead, index) => (
+                      <>
                       <Rankings
                         key={index + 1}
                         number={index + 1}
                         signer={lead.signer_id}
                         amount={formatNumber(lead.net)}
                       />
+                      </>
                     ))}
                   {selectedLeadboard.value === "volume" &&
                     leadVolume.map((lead, index) => (

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
 function RecentPlays(props) {
   const [recentPlays, setRecentPlays] = useState([]);
@@ -77,38 +78,47 @@ function RecentPlays(props) {
   }));
 
   return (
-    <Grid sx={{ flexDirection: "column", marginTop: "50px"}}>
-      <div className="home-recent-plays proximanova-bold-white-22px">
-        Recent plays
-      </div>
-      {recentPlays?.map((elm, index) => (
-        <div style={{ top: props.top }}>
-          <Item sx={{ m: 2 }}>
-            <p style={{ minHeight: "32px", width: "205px" }}>
-              <span className="proximanova-bold-white-16px-3">
-                {elm.accountId}
-              </span>{" "}
-              <br />
-              <span className="proximanova-light-white-16px-2">flipped
-              {elm.amount} Ⓝ and{" "}</span>
-              {elm.outcome === "won" && (
-                <span className="proximanova-bold-green-16px-2">
-                  {elm.outcome}.
-                </span>
-              )}
-              {elm.outcome === "lost" && (
-                <span className="proximanova-bold-coral-red-16px-2">
-                  {elm.outcome} .
-                </span>
-              )}
-            </p>
-            <div style={{ textAlign: "right", minHeight: "14px" }}>
-            <span className="proximanova-light-white-16px-2">{elm.time}</span>
+    <Navbar collapseOnSelect>
+      <Container>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav>
+          <Grid sx={{ flexDirection: "column", marginTop: "50px"}}>
+            <div className="home-recent-plays proximanova-bold-white-22px">
+              Recent plays
             </div>
-          </Item>
-        </div>
-      ))}
-    </Grid>
+            {recentPlays?.map((elm, index) => (
+              <div style={{ top: props.top }}>
+                <Item sx={{ m: 2 }}>
+                  <p style={{ minHeight: "32px", width: "205px" }}>
+                    <span className="proximanova-bold-white-16px-3">
+                      {elm.accountId}
+                    </span>{" "}
+                    <br />
+                    <span className="proximanova-light-white-16px-2">flipped
+                    {elm.amount} Ⓝ and{" "}</span>
+                    {elm.outcome === "won" && (
+                      <span className="proximanova-bold-green-16px-2">
+                        {elm.outcome}.
+                      </span>
+                    )}
+                    {elm.outcome === "lost" && (
+                      <span className="proximanova-bold-coral-red-16px-2">
+                        {elm.outcome} .
+                      </span>
+                    )}
+                  </p>
+                  <div style={{ textAlign: "right", minHeight: "14px" }}>
+                  <span className="proximanova-light-white-16px-2">{elm.time}</span>
+                  </div>
+                </Item>
+              </div>
+            ))}
+            </Grid>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 export default RecentPlays;
