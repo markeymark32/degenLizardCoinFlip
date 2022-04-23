@@ -32,7 +32,6 @@ function Homepage(props) {
   const [selectedAmount, setSelectedAmount] = useState(0.1);
   const [volume, setVolume] = useState(0);
   const [nearPrice, setNearPrice] = useState(0);
-  const [status, setStatus] = useState("");
   const [showLoading, setShowLoading] = useState();
   const [betsArray, setBetsArray] = useState(bets);
   const [flipStatus, setFlipStatus] = useState("");
@@ -212,11 +211,8 @@ function Homepage(props) {
                       alt="Heads"
                     />
                     <div className="frame-2">
-                      <Button onClick={(e) => setCoin(e.target.value)}>
-                        <div className={`
-                        ${ selectedSide === "heads"
-                        ? "heads proximanova-extra-normal-white-18px"
-                        : "tails proximanova-extra-normal-white-18px"}`}>
+                      <Button value="heads" onClick={() => setCoin("heads")}>
+                        <div className="heads proximanova-extra-normal-white-18px">
                           Heads
                         </div>
                       </Button>
@@ -229,11 +225,8 @@ function Homepage(props) {
                       alt="Tails"
                     />
                     <div className="frame-3">
-                      <Button onClick={(e) => setCoin(e.target.value)}>
-                        <div className={`
-                        ${ selectedSide === "tails"
-                        ? "heads proximanova-extra-normal-white-18px"
-                        : "tails proximanova-extra-normal-white-18px"}`}>
+                      <Button value="tails" onClick={() => setCoin("tails")}>
+                        <div className="tails proximanova-extra-normal-white-18px">
                           Tails
                         </div>
                       </Button>
@@ -255,7 +248,7 @@ function Homepage(props) {
                       marks={marks}
                       max={10}
                       mine={0.1}
-                      onChange={(e) => setSelectedAmount(betsArray[e.target.value])}
+                      onChange={(e) => setSelectedAmount(e.target.value)}
                     />
                   </div>
                 </div>

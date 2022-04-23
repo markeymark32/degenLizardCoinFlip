@@ -93,7 +93,7 @@ function RecentPlays(props) {
               {elm.amount} Ⓝ and{" "}</span>
               {elm.outcome === "won" && (
                 <span className="proximanova-bold-green-16px-2">
-                  {elm.outcome}{" "}
+                  {elm.outcome}.
                 </span>
               )}
               {elm.outcome === "lost" && (
