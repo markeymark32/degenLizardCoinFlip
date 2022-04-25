@@ -1,0 +1,128 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@font-face {
+  font-family: "Proxima Nova-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.animaapp.com/ProximaNova-Bold") format("opentype");
+}
+@font-face {
+  font-family: "Proxima Nova-Light";
+  font-style: normal;
+  font-weight: 300;
+  src: url("https://fonts.animaapp.com/ProximaNova-Light") format("opentype");
+}
+@font-face {
+  font-family: "Proxima Nova-Extrabold";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.animaapp.com/ProximaNova-Extrabold")
+    format("opentype");
+}
+@font-face {
+  font-family: "Proxima Nova-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.animaapp.com/ProximaNova-Regular") format("opentype");
+}
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+* {
+  box-sizing: border-box;
+  
+}
+
+.app .btn-toggle {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  background: #353535;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  display: none;
+}
+
+.app .sidebar-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app .sidebar-btn-wrapper .sidebar-btn {
+  padding: 1px 15px;
+  border-radius: 40px;
+  background: rgba(85, 8, 228, 0.05);
+  color: #ea0f0f;
+  text-decoration: none;
+  margin: 0 auto;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.app .sidebar-btn-wrapper .sidebar-btn span {
+  margin-left: 5px;
+  font-size: 13px;
+}
+.app .sidebar-btn-wrapper .sidebar-btn:hover {
+  color: #d8d8d8;
+}
+.app .collapsed .sidebar-btn {
+  display: inline-block;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  line-height: 40px;
+  padding: 0;
+}
+
+.app.rtl {
+  direction: rtl;
+  text-align: right;
+}
+.app.rtl header h1 {
+  transform: translateX(20px);
+}
+.app.rtl .block {
+  direction: rtl;
+}
+.app.rtl .block > span {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.app.rtl .sidebar-btn-wrapper .sidebar-btn span {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+@media (max-width: 767px) {
+  .app .btn-toggle {
+    display: flex;
+  }
+  .app.rtl .btn-toggle {
+    margin-left: auto;
+  }
+}
