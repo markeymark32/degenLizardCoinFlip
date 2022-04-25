@@ -87,6 +87,7 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
           toggled={toggled}
           breakPoint="md"
           onToggle={handleToggleSidebar}>
+          width="320px"  
         <SidebarHeader>
           <div className="home-recent-plays proximanova-bold-white-22px">
               Recent plays
