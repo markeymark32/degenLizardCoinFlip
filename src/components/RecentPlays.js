@@ -71,12 +71,10 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
     padding: "20px",
     height: "100%",
     backgroundColor: "#3c3c3c",
-    minWidth: "75%",
     border: "2px solid #ffffff33",
     borderRadius: "10px",
     position: "relative",
     minHeight: "106px",
-    width: "50%",
     alignItems: "flex-end"
   }));
 
