@@ -75,7 +75,7 @@
   border: 1px solid var(--white);
   border-radius: 20px;
   height: 94px;
-  left: 230px;
+  left: 195px;
   position: absolute;
   top: 0;
   width: 504px;
@@ -89,7 +89,7 @@
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  left: 210px;
+  left: 170px;
   min-height: 484px;
   padding: 60px 107px;
   position: relative;
@@ -215,7 +215,7 @@
 .home-overlap-title-group {
   align-items: center;
   flex-direction: column;
-  left: 200px;
+  left: 170px;
   position: relative;
   width: 550px;
   padding: 30px;
