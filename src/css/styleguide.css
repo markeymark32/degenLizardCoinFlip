@@ -55,6 +55,14 @@
   overflow-wrap: break-word;
 }
 
+.proximanova-bold-white-14px {
+  color: var(--white);
+  font-family: var(--font-family-proxima_nova-extrabold);
+  font-style: normal;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
 .proximanova-bold-green-16px-2 {
   color: var(--green);
   font-family: var(--font-family-proxima_nova-bold);
