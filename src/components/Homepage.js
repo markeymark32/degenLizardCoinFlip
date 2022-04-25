@@ -167,7 +167,7 @@ function Homepage(props) {
 
   return (
     <div id="app" className={`app ${rtl ? "rtl" : ""} ${toggled ? "toggled" : ""}`}>
-    <Container maxWidth="xl" sx={{ bgcolor: "#1a1c24" }}>
+    
       <Box
         sx={{
           flexGrow: 1,
@@ -176,21 +176,22 @@ function Homepage(props) {
           display: "flex"
         }}
       >
-        <Grid container >
+        <Grid container align="center" justify="center" >
           <Grid item xs={12}>
             <LizardNav logo={logo_Degen} handleToggleSidebar={handleToggleSidebar}/>
           </Grid>
           <Grid
             item
             style={{ backgroundColor: "#1f2029", maxWidth: "100%", top:"80px" }}
+            
           >
             <RecentPlays rtl={rtl}
               toggled={toggled}
               handleToggleSidebar={handleToggleSidebar}/>
+              
           </Grid>
           <Grid
-            item
-            xs={3}
+            xs={6}
           >
             {status === "You won!" && (
               <img
@@ -361,7 +362,7 @@ function Homepage(props) {
           </Grid>
         </Grid>
       </Box>
-    </Container></div>
+    </div>
   );
 }
 

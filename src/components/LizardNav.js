@@ -34,7 +34,7 @@ const LizardNav = (props) => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <div className="ml-auto">
                         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-                            <Nav className="me-auto" style={{ maxHeight: '100px' }}>
+                            <Nav  style={{ maxHeight: '100px' }}>
                                 <Nav.Link href="/" style={{color: "#23ce6b"}}>Coinflip</Nav.Link>
                                 <Nav.Link href="/Leaderboard" style={{ color: "#ffffff"}}>Leaderboard</Nav.Link>
                             </Nav>
