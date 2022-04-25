@@ -227,7 +227,7 @@ function Leaderboard(props) {
           >
               <div className="degen_stats">
                 <h1 className="title proximanova-bold-white-28px-22">
-                  DEGEN Lizards Coin Flip
+                  <span className="proximanova-bold-green-28px">DEGEN Lizards</span> Coin Flip
                 </h1>
                 <div className="flex-row">
                   <div className="statCta">
