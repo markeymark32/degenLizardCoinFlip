@@ -191,6 +191,7 @@ function Homepage(props) {
               
           </Grid>
           <Grid
+          item
             xs={6}
           >
             {status === "You won!" && (
