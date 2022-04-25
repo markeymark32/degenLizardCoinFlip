@@ -14,6 +14,7 @@ import Container from "@mui/material/Container";
 import lostAnimation from "./loss.json";
 import winAnimation from "./win2.json";
 import Lottie from "react-lottie";
+import { useIntl } from "react-intl";
 
 const bets = [
   0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6,
@@ -36,6 +37,18 @@ function Homepage(props) {
   const [betsArray, setBetsArray] = useState(bets);
   const [flipStatus, setFlipStatus] = useState("");
   const [isHeads, setHeads] = useState("true");
+  const [rtl, setRtl] = useState(false);
+  const [toggled, setToggled] = useState(false);
+  const intl = useIntl();
+
+  const handleRtlChange = (checked) => {
+    setRtl(checked);
+    //setLocale(checked ? "ar" : "en");
+  };
+
+  const handleToggleSidebar = (value) => {
+    setToggled(value);
+  };
 
   useEffect(async () => {
     const maxBetFinal = 10;
@@ -133,6 +146,7 @@ function Homepage(props) {
 
     await setTimeout(() => {
       try {
+        console.log(window.contract);
         window.contract.play(
           {},
           100000000000000,
@@ -152,6 +166,7 @@ function Homepage(props) {
   };
 
   return (
+    <div id="app" className={`app ${rtl ? "rtl" : ""} ${toggled ? "toggled" : ""}`}>
     <Container maxWidth="xl" sx={{ bgcolor: "#1a1c24" }}>
       <Box
         sx={{
@@ -163,19 +178,19 @@ function Homepage(props) {
       >
         <Grid container >
           <Grid item xs={12}>
-            <LizardNav logo={logo_Degen} />
+            <LizardNav logo={logo_Degen} handleToggleSidebar={handleToggleSidebar}/>
           </Grid>
           <Grid
             item
-            style={{ backgroundColor: "#1f2029", maxWidth: "100%" }}
+            style={{ backgroundColor: "#1f2029", maxWidth: "100%", top:"80px" }}
           >
-            <RecentPlays />
+            <RecentPlays rtl={rtl}
+              toggled={toggled}
+              handleToggleSidebar={handleToggleSidebar}/>
           </Grid>
           <Grid
             item
-            alignItems="center"
-            justifyContent="center"
-            style={{ minHeight: "100vh" }}
+            xs={3}
           >
             {status === "You won!" && (
               <img
@@ -346,7 +361,7 @@ function Homepage(props) {
           </Grid>
         </Grid>
       </Box>
-    </Container>
+    </Container></div>
   );
 }
 

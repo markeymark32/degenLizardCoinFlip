@@ -48,3 +48,81 @@
   box-sizing: border-box;
   
 }
+
+.app .btn-toggle {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  background: #353535;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  display: none;
+}
+
+.app .sidebar-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app .sidebar-btn-wrapper .sidebar-btn {
+  padding: 1px 15px;
+  border-radius: 40px;
+  background: rgba(85, 8, 228, 0.05);
+  color: #ea0f0f;
+  text-decoration: none;
+  margin: 0 auto;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.app .sidebar-btn-wrapper .sidebar-btn span {
+  margin-left: 5px;
+  font-size: 13px;
+}
+.app .sidebar-btn-wrapper .sidebar-btn:hover {
+  color: #d8d8d8;
+}
+.app .collapsed .sidebar-btn {
+  display: inline-block;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  line-height: 40px;
+  padding: 0;
+}
+
+.app.rtl {
+  direction: rtl;
+  text-align: right;
+}
+.app.rtl header h1 {
+  transform: translateX(20px);
+}
+.app.rtl .block {
+  direction: rtl;
+}
+.app.rtl .block > span {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.app.rtl .sidebar-btn-wrapper .sidebar-btn span {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+@media (max-width: 767px) {
+  .app .btn-toggle {
+    display: flex;
+  }
+  .app.rtl .btn-toggle {
+    margin-left: auto;
+  }
+}

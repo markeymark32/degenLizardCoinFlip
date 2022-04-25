@@ -3,12 +3,11 @@ import Rankings from "./Rankings";
 import "../Leaderboard.css";
 import RecentPlays from "./RecentPlays";
 import Button from "@mui/material/Button";
-import { FormControl, MenuItem, Select } from "@material-ui/core";
 import LizardNav from "./LizardNav";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
+import { useIntl } from "react-intl";
 
 function Leaderboard(props) {
   const LeadTypes = [
@@ -67,6 +66,18 @@ function Leaderboard(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingStats, setIsLoadingStats] = useState(false);
   const [analytics, setAnalytics] = useState("Net Gains");
+  const [rtl, setRtl] = useState(false);
+  const [toggled, setToggled] = useState(false);
+  const intl = useIntl();
+
+  const handleRtlChange = (checked) => {
+    setRtl(checked);
+    //setLocale(checked ? "ar" : "en");
+  };
+
+  const handleToggleSidebar = (value) => {
+    setToggled(value);
+  };
 
   const handleChange = (event) => {
     setAnalytics(event.target.value);
@@ -186,6 +197,7 @@ function Leaderboard(props) {
   } = props;
 
   return (
+    <div id="app" className={`app ${rtl ? "rtl" : ""} ${toggled ? "toggled" : ""}`}>
     <Container maxWidth="xl" sx={{ bgcolor: "#1a1c24" }}>
       <Box
         sx={{
@@ -197,13 +209,15 @@ function Leaderboard(props) {
       >
         <Grid container >
           <Grid item xs={12}>
-            <LizardNav logo={logo_Degen} />
+            <LizardNav logo={logo_Degen} handleToggleSidebar={handleToggleSidebar}/>
           </Grid>
           <Grid
             item
             style={{ backgroundColor: "#1f2029" }}
           >
-            <RecentPlays />
+            <RecentPlays rtl={rtl}
+              toggled={toggled}
+              handleToggleSidebar={handleToggleSidebar}/>
           </Grid>
           <Grid
             item
@@ -391,7 +405,7 @@ function Leaderboard(props) {
             </Grid>
         </Grid>
       </Box>
-    </Container>
+    </Container></div>
   );
 }
 

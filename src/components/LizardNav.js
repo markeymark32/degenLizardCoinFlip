@@ -1,12 +1,33 @@
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { login, logout } from '../utils';
+import { FaBars } from "react-icons/fa";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1
+    },
+    menuButton: {
+      marginRight: theme.spacing(2)
+    },
+    title: {
+      flexGrow: 1
+    }
+  }));
 
 const LizardNav = (props) => {
+    const classes = useStyles();
         return (
             <div id="nav">
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
                 <Container>
+                    <div
+                    className={`btn-toggle ${classes.menuButton}`}
+                    onClick={() => props.handleToggleSidebar(true)}
+                    >
+                    <FaBars />
+                    </div>
                     <Navbar.Brand href="#">
                         <img className="logo_degen" alt="Degen_Logo" src={props.logo} />
                     </Navbar.Brand>

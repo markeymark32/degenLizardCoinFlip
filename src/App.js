@@ -1,16 +1,20 @@
 import "regenerator-runtime/runtime";
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Leaderboard from "./components/Leaderboard";
+import { IntlProvider } from "react-intl";
 
 import getConfig from "./config";
 const { networkId } = getConfig(process.env.NODE_ENV || "development");
 
 function App() {
+  const [locale, setLocale] = useState("en");
+
   return (
+    <IntlProvider locale={locale} >
     <Router>
-      <Routes>
+      <Routes setLocale={setLocale}>
         <Route path="/" element={<Homepage {...homepageData} />} />
         <Route
           path="/leaderboard"
@@ -18,6 +22,7 @@ function App() {
         />
       </Routes>
     </Router>
+    </IntlProvider>
   );
 }
 

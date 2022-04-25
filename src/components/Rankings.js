@@ -14,7 +14,7 @@ function Rankings(props) {
       </div>
       <div className="text proximanova-black-white-16px">
         <span className="span-1 proximanova-black-white-16px-2">{amount}</span>
-        <span className="span-1 proximanova-black-green-16px"> Ⓝ</span>
+        <span className="span-1 proximanova-black-green-16px greenColor"> Ⓝ</span>
       </div>
     </div>
   );

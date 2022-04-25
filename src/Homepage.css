@@ -54,7 +54,7 @@
 .home-overlap-group9 {
   align-items: center;
   flex-direction: column;
-  left: 270px;
+  left: 0;
   position: relative;
   width: 550px;
   margin-top: 70px;
@@ -62,7 +62,7 @@
 }
 
 .volume-flipped-6337320 {
-  left: 63px;
+  left: 200px;
   letter-spacing: 0;
   position: absolute;
   top: 33px;
@@ -72,7 +72,7 @@
   border: 1px solid var(--white);
   border-radius: 20px;
   height: 94px;
-  left: 0;
+  left: 100px;
   position: absolute;
   top: 0;
   width: 504px;
@@ -84,7 +84,7 @@
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  left: 270px;
+  left: 100px;
   min-height: 484px;
   padding: 60px 107px;
   position: relative;
@@ -210,7 +210,7 @@
 .home-overlap-title-group {
   align-items: center;
   flex-direction: column;
-  left: 270px;
+  left: 100px;
   position: relative;
   width: 550px;
   padding: 30px;
@@ -222,6 +222,10 @@
   border-color: #23ce6b !important;
 }
 
+.greenColor {
+  color: #23ce6b !important;
+}
+
 .black {
   background-color: black !important;
   border-color: #23ce6b !important;
@@ -229,5 +233,15 @@
 
 btn-check:active+.btn-primary, .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
   background-color: #23ce6b !important;
+  border-color: #23ce6b !important;
+}
+
+btn-check:active {
+  background-color: #23ce6b !important;
+  border-color: #23ce6b !important;
+}
+
+btn {
+  background-color: black !important;
   border-color: #23ce6b !important;
 }
