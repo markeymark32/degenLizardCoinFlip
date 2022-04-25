@@ -75,7 +75,6 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
     border: "2px solid #ffffff33",
     borderRadius: "10px",
     position: "relative",
-    left: "34px",
     minHeight: "106px",
     width: "50%",
     alignItems: "flex-end"
