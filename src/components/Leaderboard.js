@@ -236,7 +236,7 @@ function Leaderboard(props) {
                         setAuxStats({ selected: "all", timestamp: 0 })
                       }
                     >
-                      <div className="proximanova-extra-normal-white-18px">
+                      <div className="proximanova-bold-white-14px">
                         All
                       </div>
                     </Button>
@@ -250,7 +250,7 @@ function Leaderboard(props) {
                         })
                       }
                     >
-                      <div className="proximanova-extra-normal-white-18px">
+                      <div className="proximanova-bold-white-14px">
                         Current Month
                       </div>
                     </Button>
@@ -264,7 +264,7 @@ function Leaderboard(props) {
                         })
                       }
                     >
-                      <div className="proximanova-extra-normal-white-18px">
+                      <div className="proximanova-bold-white-14px">
                         Current Day
                       </div>
                     </Button>
@@ -321,7 +321,7 @@ function Leaderboard(props) {
                         setSelectedTime("all");
                       }}
                     >
-                      <div className="proximanova-extra-normal-white-18px">
+                      <div className="proximanova-bold-white-14px">
                         All
                       </div>
                     </Button>
@@ -333,7 +333,7 @@ function Leaderboard(props) {
                         setSelectedTime("current_month");
                       }}
                     >
-                      <div className="proximanova-extra-normal-white-18px">
+                      <div className="proximanova-bold-white-14px">
                         Current Month
                       </div>
                     </Button>
@@ -345,14 +345,14 @@ function Leaderboard(props) {
                         setSelectedTime("current_day");
                       }}
                     >
-                      <div className="proximanova-extra-normal-white-18px">
+                      <div className="proximanova-bold-white-14px">
                         Current Day
                       </div>
                     </Button>
                   </div>
                   <div className="filter">
                     <div className="net-gains ">
-                    <select className="selectpicker statCta proximanova-extra-normal-white-18px" value={analytics} onChange={handleChange}>
+                    <select className="selectpicker statCta proximanova-bold-white-14px" value={analytics} onChange={handleChange}>
                         <option>Net Gains</option>
                         <option>Win Streaks</option>
                         <option>Loss Streaks</option>
