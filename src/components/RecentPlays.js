@@ -83,6 +83,7 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
 
   return (
       <>
+    <div style={{ marginTop: "50px"}}>
       <ProSidebar rtl={rtl}
           toggled={toggled}
           breakPoint="md"
@@ -125,6 +126,7 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
           </Menu>
         </SidebarContent>
       </ProSidebar>
+    </div>
           </>
   );
 }
