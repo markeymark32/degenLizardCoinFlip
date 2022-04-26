@@ -52,8 +52,8 @@ function Leaderboard(props) {
     total_won: 0
   });
   const [auxStats, setAuxStats] = useState({
-    selected: stats.selected,
-    timestamp: stats.timestamp
+    selected: "all",
+    timestamp: 0
   });
   const [leadNetGain, setLeadNetGain] = useState([]);
   const [leadVolume, setLeadVolume] = useState([]);
@@ -61,7 +61,7 @@ function Leaderboard(props) {
   const [lossStreak, setLossStreak] = useState([]);
   const [selectedLeadboard, setSelectedLeadboard] = useState(LeadTypes[0]);
   const [controlState, setControlState] = useState(false);
-  const [selectedTime, setSelectedTime] = useState("current_month");
+  const [selectedTime, setSelectedTime] = useState("all");
   const [monthTimestamp, setMonthTimestamp] = useState(getMonthTimestamp);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingStats, setIsLoadingStats] = useState(false);
@@ -69,6 +69,7 @@ function Leaderboard(props) {
   const [rtl, setRtl] = useState(false);
   const [toggled, setToggled] = useState(false);
   const intl = useIntl();
+  const { logo_Degen } = props;
 
   const handleRtlChange = (checked) => {
     setRtl(checked);
@@ -192,13 +193,11 @@ function Leaderboard(props) {
       .finally(() => setIsLoadingStats(false));
   }, [auxStats]);
 
-  const {
-    logo_Degen,
-  } = props;
-
   return (
-    <div id="app" className={`app ${rtl ? "rtl" : ""} ${toggled ? "toggled" : ""}`}>
-    
+    <div
+      id="app"
+      className={`app ${rtl ? "rtl" : ""} ${toggled ? "toggled" : ""}`}
+    >
       <Box
         sx={{
           flexGrow: 1,
@@ -207,17 +206,19 @@ function Leaderboard(props) {
           display: "flex"
         }}
       >
-        <Grid container >
+        <Grid container>
           <Grid item xs={12}>
-            <LizardNav logo={logo_Degen} handleToggleSidebar={handleToggleSidebar}/>
+            <LizardNav
+              logo={logo_Degen}
+              handleToggleSidebar={handleToggleSidebar}
+            />
           </Grid>
-          <Grid
-            item
-            style={{ backgroundColor: "#1d1d1d" }}
-          >
-            <RecentPlays rtl={rtl}
+          <Grid item style={{ backgroundColor: "#1d1d1d" }}>
+            <RecentPlays
+              rtl={rtl}
               toggled={toggled}
-              handleToggleSidebar={handleToggleSidebar}/>
+              handleToggleSidebar={handleToggleSidebar}
+            />
           </Grid>
           <Grid
             item
@@ -225,187 +226,217 @@ function Leaderboard(props) {
             justifyContent="center"
             style={{ minHeight: "100vh" }}
           >
-              <div className="degen_stats">
-                <h1 className="title proximanova-bold-white-28px-22">
-                  <span className="proximanova-bold-green-28px">DEGEN Lizards</span> Coin Flip
-                </h1>
-                <div className="flex-row">
-                  <div className="statCta">
-                    <Button
-                      onClick={() =>
-                        setAuxStats({ selected: "all", timestamp: 0 })
-                      }
-                    >
-                      <div className="proximanova-bold-white-14px">
-                        All
-                      </div>
-                    </Button>
+            <div className="degen_stats">
+              <h1 className="title proximanova-bold-white-28px-22">
+                <span className="proximanova-bold-green-28px">
+                  DEGEN Lizards
+                </span>{" "}
+                Coin Flip
+              </h1>
+              <div className="flex-row">
+                <div className="statCta">
+                  <Button
+                    onClick={() =>
+                      setAuxStats({ selected: "all", timestamp: 0 })
+                    }
+                    value="all"
+                    className={`${
+                      auxStats.selected === "all" ? "active green" : "black2"
+                    }`}
+                  >
+                    <div className="proximanova-bold-white-14px">All</div>
+                  </Button>
+                </div>
+                <div className="statCta">
+                  <Button
+                    onClick={() =>
+                      setAuxStats({
+                        selected: "current_month",
+                        timestamp: getMonthTimestamp()
+                      })
+                    }
+                    value="current_month"
+                    className={`${
+                      auxStats.selected === "current_month"
+                        ? "active green"
+                        : "black2"
+                    }`}
+                  >
+                    <div className="proximanova-bold-white-14px">
+                      Current Month
+                    </div>
+                  </Button>
+                </div>
+                <div className="statCta">
+                  <Button
+                    onClick={() =>
+                      setAuxStats({
+                        selected: "current_day",
+                        timestamp: getDayTimestamp()
+                      })
+                    }
+                    value="current_day"
+                    className={`${
+                      auxStats.selected === "current_day"
+                        ? "active green"
+                        : "black2"
+                    }`}
+                  >
+                    <div className="proximanova-bold-white-14px">
+                      Current Day
+                    </div>
+                  </Button>
+                </div>
+              </div>
+              <div className="flex-row-1">
+                <div className="stats-container">
+                  <div className="stats ">
+                    <div className="total-flips proximanova-bold-white-16px-3">
+                      Total Flips
+                    </div>
+                    <div className="text-1 proximanova-bold-green-28px ">
+                      <h1>{formatNumber(stats.total_flips)}</h1>
+                    </div>
                   </div>
-                  <div className="statCta">
-                    <Button
-                      onClick={() =>
-                        setAuxStats({
-                          selected: "current_month",
-                          timestamp: getMonthTimestamp()
-                        })
-                      }
-                    >
-                      <div className="proximanova-bold-white-14px">
-                        Current Month
-                      </div>
-                    </Button>
-                  </div>
-                  <div className="statCta">
-                    <Button
-                      onClick={() =>
-                        setAuxStats({
-                          selected: "current_day",
-                          timestamp: getDayTimestamp()
-                        })
-                      }
-                    >
-                      <div className="proximanova-bold-white-14px">
-                        Current Day
-                      </div>
-                    </Button>
+                  <div className="stats-1 ">
+                    <div className="total-loss proximanova-bold-white-16px-3">
+                      Total Loss
+                    </div>
+                    <div className="text-1 proximanova-bold-green-28px ">
+                      <h1>{formatNumber(stats.total_loss)}</h1>
+                    </div>
                   </div>
                 </div>
-                <div className="flex-row-1">
-                  <div className="stats-container">
-                    <div className="stats ">
-                      <div className="total-flips proximanova-bold-white-16px-3">
-                        Total Flips
-                      </div>
-                      <div className="text-1 proximanova-bold-green-28px ">
-                        <h1>{formatNumber(stats.total_flips)}</h1>
-                      </div>
+                <div className="stats-container-1">
+                  <div className="stats-2 ">
+                    <div className="total-won proximanova-bold-white-16px-3">
+                      Total Won
                     </div>
-                    <div className="stats-1 ">
-                      <div className="total-loss proximanova-bold-white-16px-3">
-                        Total Loss
-                      </div>
-                      <div className="text-1 proximanova-bold-green-28px ">
-                        <h1>{formatNumber(stats.total_loss)}</h1>
-                      </div>
+                    <div className="text-3 proximanova-bold-green-28px ">
+                      <h1>{formatNumber(stats.total_won)}</h1>
                     </div>
                   </div>
-                  <div className="stats-container-1">
-                    <div className="stats-2 ">
-                      <div className="total-won proximanova-bold-white-16px-3">
-                        Total Won
-                      </div>
-                      <div className="text-3 proximanova-bold-green-28px ">
-                        <h1>{formatNumber(stats.total_won)}</h1>
-                      </div>
+                  <div className="stats-3 ">
+                    <div className="total-volume proximanova-bold-white-16px-3">
+                      Total Volume
                     </div>
-                    <div className="stats-3 ">
-                      <div className="total-volume proximanova-bold-white-16px-3">
-                        Total Volume
-                      </div>
-                      <div className="text-4 proximanova-bold-green-28px">
-                        <h1>{formatNumber(stats.total_volume)}</h1>
-                      </div>
+                    <div className="text-4 proximanova-bold-green-28px">
+                      <h1>{formatNumber(stats.total_volume)}</h1>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="leaderboard-1">
-                <div className="leaderboard-2 proximanova-bold-white-28px-22">
-                  Leaderboard
+            </div>
+            <div className="leaderboard-1">
+              <div className="leaderboard-2 proximanova-bold-white-28px-22">
+                Leaderboard
+              </div>
+              <div className="flex-row">
+                <div className="statCta">
+                  <Button
+                    onClick={() => {
+                      setMonthTimestamp(0);
+                      setSelectedTime("all");
+                    }}
+                    className={`${
+                      selectedTime === "all" ? "active green" : "black2"
+                    }`}
+                  >
+                    <div className="proximanova-bold-white-14px">All</div>
+                  </Button>
                 </div>
-                <div className="flex-row">
-                  <div className="statCta">
-                    <Button
-                      onClick={() => {
-                        setMonthTimestamp(0);
-                        setSelectedTime("all");
-                      }}
-                    >
-                      <div className="proximanova-bold-white-14px">
-                        All
-                      </div>
-                    </Button>
-                  </div>
-                  <div className="statCta">
-                    <Button
-                      onClick={() => {
-                        setMonthTimestamp(getMonthTimestamp);
-                        setSelectedTime("current_month");
-                      }}
-                    >
-                      <div className="proximanova-bold-white-14px">
-                        Current Month
-                      </div>
-                    </Button>
-                  </div>
-                  <div className="statCta">
-                    <Button
-                      onClick={() => {
-                        setMonthTimestamp(getDayTimestamp);
-                        setSelectedTime("current_day");
-                      }}
-                    >
-                      <div className="proximanova-bold-white-14px">
-                        Current Day
-                      </div>
-                    </Button>
-                  </div>
-                  <div className="filter">
-                    <div className="net-gains ">
-                    <select className="selectpicker statCta proximanova-bold-white-14px" value={analytics} onChange={handleChange}>
-                        <option>Net Gains</option>
-                        <option>Win Streaks</option>
-                        <option>Loss Streaks</option>
-                        <option>Volume</option>
-                    </select>
+                <div className="statCta">
+                  <Button
+                    onClick={() => {
+                      setMonthTimestamp(getMonthTimestamp);
+                      setSelectedTime("current_month");
+                    }}
+                    className={`${
+                      selectedTime === "current_month"
+                        ? "active green"
+                        : "black2"
+                    }`}
+                  >
+                    <div className="proximanova-bold-white-14px">
+                      Current Month
                     </div>
+                  </Button>
+                </div>
+                <div className="statCta">
+                  <Button
+                    onClick={() => {
+                      setMonthTimestamp(getDayTimestamp);
+                      setSelectedTime("current_day");
+                    }}
+                    className={`${
+                      selectedTime === "current_day" ? "active green" : "black2"
+                    }`}
+                  >
+                    <div className="proximanova-bold-white-14px">
+                      Current Day
+                    </div>
+                  </Button>
+                </div>
+                <div className="filter">
+                  <div className="net-gains">
+                    <select
+                      className="black2 selectpicker statCta proximanova-bold-white-14px"
+                      value={analytics}
+                      onChange={handleChange}
+                    >
+                      <option>Net Gains</option>
+                      <option>Win Streaks</option>
+                      <option>Loss Streaks</option>
+                      <option>Volume</option>
+                    </select>
                   </div>
                 </div>
-                <Grid item xs={9}>
-                  {selectedLeadboard.value === "net_gains" &&
-                    leadNetGain.map((lead, index) => (
-                      <>
+              </div>
+              <Grid item xs={9}>
+                {selectedLeadboard.value === "net_gains" &&
+                  leadNetGain.map((lead, index) => (
+                    <>
                       <Rankings
                         key={index + 1}
                         number={index + 1}
                         signer={lead.signer_id}
                         amount={formatNumber(lead.net)}
                       />
-                      </>
-                    ))}
-                  {selectedLeadboard.value === "volume" &&
-                    leadVolume.map((lead, index) => (
-                      <Rankings
-                        key={index + 1}
-                        number={index + 1}
-                        signer={lead.signer_id}
-                        amount={formatNumber(lead.volume)}
-                      />
-                    ))}
-                  {selectedLeadboard.value === "win_streaks" &&
-                    winStreak.map((lead, index) => (
-                      <Rankings
-                        key={index + 1}
-                        number={index + 1}
-                        signer={lead.signer_id}
-                        amount={formatNumber(lead.streak)}
-                      />
-                    ))}
-                  {selectedLeadboard.value === "loss_streaks" &&
-                    lossStreak.map((lead, index) => (
-                      <Rankings
-                        key={index + 1}
-                        number={index + 1}
-                        signer={lead.signer_id}
-                        amount={formatNumber(lead.streak)}
-                      />
-                    ))}</Grid>
-                
-              </div>
-            </Grid>
+                    </>
+                  ))}
+                {selectedLeadboard.value === "volume" &&
+                  leadVolume.map((lead, index) => (
+                    <Rankings
+                      key={index + 1}
+                      number={index + 1}
+                      signer={lead.signer_id}
+                      amount={formatNumber(lead.volume)}
+                    />
+                  ))}
+                {selectedLeadboard.value === "win_streaks" &&
+                  winStreak.map((lead, index) => (
+                    <Rankings
+                      key={index + 1}
+                      number={index + 1}
+                      signer={lead.signer_id}
+                      amount={formatNumber(lead.streak)}
+                    />
+                  ))}
+                {selectedLeadboard.value === "loss_streaks" &&
+                  lossStreak.map((lead, index) => (
+                    <Rankings
+                      key={index + 1}
+                      number={index + 1}
+                      signer={lead.signer_id}
+                      amount={formatNumber(lead.streak)}
+                    />
+                  ))}
+              </Grid>
+            </div>
+          </Grid>
         </Grid>
       </Box>
-   </div>
+    </div>
   );
 }
 
