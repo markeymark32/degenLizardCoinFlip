@@ -198,7 +198,7 @@ function Leaderboard(props) {
 
   return (
     <div id="app" className={`app ${rtl ? "rtl" : ""} ${toggled ? "toggled" : ""}`}>
-    <Container maxWidth="xl" sx={{ bgcolor: "#1a1c24" }}>
+    
       <Box
         sx={{
           flexGrow: 1,
@@ -213,7 +213,7 @@ function Leaderboard(props) {
           </Grid>
           <Grid
             item
-            style={{ backgroundColor: "#1f2029" }}
+            style={{ backgroundColor: "#1d1d1d" }}
           >
             <RecentPlays rtl={rtl}
               toggled={toggled}
@@ -405,7 +405,7 @@ function Leaderboard(props) {
             </Grid>
         </Grid>
       </Box>
-    </Container></div>
+   </div>
   );
 }
 

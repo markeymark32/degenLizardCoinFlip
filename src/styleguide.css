@@ -148,3 +148,7 @@ body,
   background-color: #1a1c24;
   min-width: 100vh;
 }
+
+.container{
+  max-width: 95% !important;
+}

@@ -182,7 +182,7 @@ function Homepage(props) {
           </Grid>
           <Grid
             item
-            style={{ backgroundColor: "#1f2029", maxWidth: "100%", top:"80px" }}
+            style={{ backgroundColor: "#1d1d1d", maxWidth: "100%", top:"80px" }}
             
           >
             <RecentPlays rtl={rtl}
