@@ -236,3 +236,9 @@
 .MuiSelect-select.MuiSelect-select {
   color: white;
 }
+
+.black2 {
+  background-color: #212529 !important;
+  border: 2px solid #ffffff33 !important;
+  border-radius: 10px !important;
+}
