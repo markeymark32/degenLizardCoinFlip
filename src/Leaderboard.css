@@ -73,7 +73,7 @@
 
 .stats {
   align-items: center;
-  background-color: #3c3c3c;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   border: 2px solid #ffffff33;
   display: flex;
@@ -101,7 +101,7 @@
 
 .stats-1 {
   align-items: center;
-  background-color: #3c3c3c;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   border: 2px solid #ffffff33;
   display: flex;
@@ -139,7 +139,7 @@
 
 .stats-2 {
   align-items: center;
-  background-color: #3c3c3c;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   border: 2px solid #ffffff33;
   display: flex;
@@ -167,7 +167,7 @@
 
 .stats-3 {
   align-items: center;
-  background-color: #3c3c3c;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   border: 2px solid #ffffff33;
   display: flex;
