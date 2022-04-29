@@ -1,28 +1,20 @@
 import "regenerator-runtime/runtime";
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Homepage from "./components/Homepage";
+import Coinflip from "./components/Coinflip";
 import Leaderboard from "./components/Leaderboard";
-import { IntlProvider } from "react-intl";
-
-import getConfig from "./config";
-const { networkId } = getConfig(process.env.NODE_ENV || "development");
 
 function App() {
-  const [locale, setLocale] = useState("en");
-
   return (
-    <IntlProvider locale={locale} >
     <Router>
-      <Routes setLocale={setLocale}>
-        <Route path="/" element={<Homepage {...homepageData} />} />
+      <Routes>
+        <Route path="/" element={<Coinflip {...homepageData} />} />
         <Route
           path="/leaderboard"
           element={<Leaderboard {...leaderboardData} />}
         />
       </Routes>
     </Router>
-    </IntlProvider>
   );
 }
 

@@ -4,12 +4,10 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { ProSidebar, Menu, SidebarHeader, SidebarContent } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
-import { useIntl } from "react-intl";
-import "../globals.css";
+import "../css/globals.css";
 
 function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
   const [recentPlays, setRecentPlays] = useState([]);
-  const intl = useIntl();
 
   function timeDifference(current, previous) {
     var msPerMinute = 60 * 1000;

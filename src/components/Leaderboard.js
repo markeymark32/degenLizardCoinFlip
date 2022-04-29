@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Rankings from "./Rankings";
-import "../Leaderboard.css";
+import "../css/Leaderboard.css";
 import RecentPlays from "./RecentPlays";
 import Button from "@mui/material/Button";
 import LizardNav from "./LizardNav";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { useIntl } from "react-intl";
 
 function Leaderboard(props) {
   const LeadTypes = [

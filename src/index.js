@@ -1,16 +1,22 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "./App";
-import { initContract } from "./utils";
-import "./globals.css";
-import "./styleguide.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { initContract, NearContext } from "./near";
+import "./css/globals.css";
+import "./css/styleguide.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 
 window.nearInitPromise = initContract()
-  .then(() => {
-    ReactDOM.render(
-        <App />,
-      document.querySelector("#root")
+  .then((nearContext) => {
+    root.render(
+      <React.StrictMode>
+        <NearContext.Provider value={nearContext}>
+          <App />
+        </NearContext.Provider>
+      </React.StrictMode>
     );
   })
   .catch(console.error);

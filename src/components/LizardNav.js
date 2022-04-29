@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import { login, logout } from '../utils';
+import { useNear } from "../near";
 import { FaBars } from "react-icons/fa";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const LizardNav = (props) => {
+    const near = useNear();
     const classes = useStyles();
         return (
             <div id="nav">
@@ -39,12 +40,25 @@ const LizardNav = (props) => {
                                 <Nav.Link href="/Leaderboard" style={{ color: "#ffffff"}}>Leaderboard</Nav.Link>
                             </Nav>
                             <div className="cta-1">
-                            {window.walletConnection.isSignedIn() && (
-                                <Button style={{ background: "#23ce6b"}} variant="secondary" size="sm" onClick={logout}><b>{window.accountId}</b></Button>  
-                            )}
-                            {!window.walletConnection.isSignedIn() && (
-                                <Button style={{ background: "#23ce6b"}} variant="secondary" size="sm" onClick={login}><b>Connect Wallet</b></Button>
-                            )}</div>
+                            {near.isLoggedIn ? (
+                                    <Button
+                                    style={{ background: "#23ce6b", cornerRadius: 0 }}
+                                    variant="secondary"
+                                    size="sm"
+                                    onClick={near.signOut}
+                                    >
+                                    <b>{near.accountId}</b>
+                                    </Button>
+                                ) : (
+                                    <Button
+                                    style={{ background: "#23ce6b", cornerRadius: 0 }}
+                                    variant="secondary"
+                                    size="sm"
+                                    onClick={near.signIn}
+                                    >
+                                    <b>Connect Wallet</b>
+                                    </Button>
+                                )}</div>
                         </Navbar.Collapse>
                     </div>
                 </Container>

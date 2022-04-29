@@ -1,5 +1,5 @@
 import React from "react";
-import "../Rankings.css";
+import "../css/Rankings.css";
 
 function Rankings(props) {
   const { number, signer, amount } = props;
