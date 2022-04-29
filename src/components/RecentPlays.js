@@ -68,7 +68,7 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
     ...theme.typography.body2,
     padding: "20px",
     height: "100%",
-    backgroundColor: "#3c3c3c",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
     border: "2px solid #ffffff33",
     borderRadius: "10px",
     position: "relative",
@@ -85,7 +85,7 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
           onToggle={handleToggleSidebar}
           width="270px"  >
           
-        <SidebarHeader>
+        <SidebarHeader className="headerBorder">
           <div className="home-recent-plays proximanova-bold-white-22px">
               Recent plays
           </div>
