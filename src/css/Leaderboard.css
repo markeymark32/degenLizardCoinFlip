@@ -222,7 +222,6 @@
 
 .statCta {
   align-items: center;
-  background-color: var(--green);
   border-radius: 5px;
   display: flex;
   height: 38px;
@@ -235,4 +234,10 @@
 
 .MuiSelect-select.MuiSelect-select {
   color: white;
+}
+
+.black {
+  background-color: #3c3c3c !important;
+  border: 2px solid !important;
+  border-color: white !important;
 }

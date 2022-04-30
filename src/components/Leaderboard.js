@@ -239,7 +239,7 @@ function Leaderboard(props) {
                     }
                     value="all"
                     className={`${
-                      auxStats.selected === "all" ? "active green" : "black2"
+                      auxStats.selected === "all" ? "active green" : "black"
                     }`}
                   >
                     <div className="proximanova-bold-white-14px">All</div>
@@ -257,7 +257,7 @@ function Leaderboard(props) {
                     className={`${
                       auxStats.selected === "current_month"
                         ? "active green"
-                        : "black2"
+                        : "black"
                     }`}
                   >
                     <div className="proximanova-bold-white-14px">
@@ -277,7 +277,7 @@ function Leaderboard(props) {
                     className={`${
                       auxStats.selected === "current_day"
                         ? "active green"
-                        : "black2"
+                        : "black"
                     }`}
                   >
                     <div className="proximanova-bold-white-14px">
@@ -337,7 +337,7 @@ function Leaderboard(props) {
                       setSelectedTime("all");
                     }}
                     className={`${
-                      selectedTime === "all" ? "active green" : "black2"
+                      selectedTime === "all" ? "active green" : "black"
                     }`}
                   >
                     <div className="proximanova-bold-white-14px">All</div>
@@ -352,7 +352,7 @@ function Leaderboard(props) {
                     className={`${
                       selectedTime === "current_month"
                         ? "active green"
-                        : "black2"
+                        : "black"
                     }`}
                   >
                     <div className="proximanova-bold-white-14px">
@@ -367,7 +367,7 @@ function Leaderboard(props) {
                       setSelectedTime("current_day");
                     }}
                     className={`${
-                      selectedTime === "current_day" ? "active green" : "black2"
+                      selectedTime === "current_day" ? "active green" : "black"
                     }`}
                   >
                     <div className="proximanova-bold-white-14px">
@@ -378,7 +378,8 @@ function Leaderboard(props) {
                 <div className="filter">
                   <div className="net-gains">
                     <select
-                      className="black2 selectpicker statCta proximanova-bold-white-14px"
+                      className="selectpicker statCta proximanova-bold-white-14px"
+                      style={{backgroundColor: "#3c3c3c", border: "2px solid", borderColor: "white"}}
                       value={analytics}
                       onChange={handleChange}
                     >
