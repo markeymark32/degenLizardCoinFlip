@@ -15,6 +15,7 @@ function Coinflip(props) {
     const [sideSelected, setSideSelected] = useState(coinSide.heads);
     const [winState, setWinState] = useState(winStates.notPlayed);
     const [volume, setVolume] = useState(0);
+    const [status, setStatus] = useState();
     const [rtl, setRtl] = useState(false);
     const [toggled, setToggled] = useState(false);
     const coinFlip = useCoinFlip();

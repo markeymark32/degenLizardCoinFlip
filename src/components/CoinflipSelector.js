@@ -45,7 +45,7 @@ export default function CoinflipSelector({
                       alt="Heads"
                     />
                     
-                      <Button value="heads" onClick={(e) => setSelectedSide(coinSide.heads)} className={`frame-2 proximanova-extra-normal-white-18px ${sideSelected === "heads" ? "active green" : "black"}`}>
+                      <Button sx={{textTransform: "none", minWidth: "auto", marginTop: "20px", color: "white", fontSize: "18px", fontFamily: "Proxima Nova-Bold, Helvetica"}} value="heads" onClick={(e) => setSideSelected(coinSide.heads)} className={`frame-2 proximanova-extra-normal-white-18px ${sideSelected === coinSide.heads ? "active green" : "black"}`}>
                           Heads
                       </Button>
                   </div>
@@ -56,7 +56,7 @@ export default function CoinflipSelector({
                       value="Tails"
                       alt="Tails"
                     />
-                      <Button value="tails" onClick={(e) => setSelectedSide(coinSide.tails)} className={`frame-3 proximanova-extra-normal-white-18px ${sideSelected === "tails" ? "active green" : "black"}`}>
+                      <Button sx={{textTransform: "none", minWidth: "auto", marginTop: "20px", color: "white", fontSize: "18px", fontFamily: "Proxima Nova-Bold, Helvetica"}} value="tails" onClick={(e) => setSideSelected(coinSide.tails)} className={`frame-3 proximanova-extra-normal-white-18px ${sideSelected === coinSide.tails ? "active green" : "black"}`}>
                           Tails
                       </Button>
                   </div>

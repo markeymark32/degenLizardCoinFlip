@@ -11,29 +11,29 @@ const CoinFlipAction = ({ amount, onFlip, winState }) => {
     const { text, color, buttonText } = {
         [winStates.notPlayed]: {
           text: "Bet",
-          color: "var(--caribbean-green-pearl)",
+          color: "var(--white)",
           buttonText: "Play",
         },
         [winStates.won]: {
           text: "You won",
-          color: "var(--caribbean-green-pearl)",
+          color: "var(--white)",
           buttonText: "Double or nothing",
         },
         [winStates.lost]: {
           text: "You lost",
-          color: "var(--sunset-orange)",
+          color: "var(--white)",
           buttonText: "Play same amount",
         },
       }[winState];
     
       return (
-        <div className="youwon">
+        <div className="pixeloidsans-bold-white-16px">
             
-            <div className="you-won">{text}</div>
-            <div className="x05-near" style={{ color }}>
+            <div className="pixeloidsans-bold-white-16px" style={{ color }}>{text}</div>
+            <div className="pixeloidsans-bold-white-16px" style={{ color }}>
                 {amount} NEAR
             </div>
-            <Button onClick={near.isLoggedIn ? () => onFlip(amount) : near.signIn} className="cta double-or-nothing proximanova-extra-normal-white-18px green">
+            <Button sx={{textTransform: "none", minWidth: "auto", marginTop: "20px", color: "white", fontSize: "18px", fontFamily: "Proxima Nova-Bold, Helvetica"}} onClick={near.isLoggedIn ? () => onFlip(amount) : near.signIn} className="cta double-or-nothing proximanova-extra-normal-white-18px green">
                 <div className="connect-wallet pixeloidsans-bold-white-16px">
                 {near.isLoggedIn ? buttonText : "Connect wallet"}
                 </div>

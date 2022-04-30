@@ -107,8 +107,8 @@
 
 .frame-container {
   align-items: flex-start;
-  display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .frame {
@@ -130,10 +130,10 @@
 
 .frame-container-1 {
   align-items: flex-start;
-  display: flex;
   flex-direction: column;
   margin-left: 76px;
   width: 96px;
+  margin-top: 10px;
 }
 
 .frame-3 {
@@ -248,4 +248,8 @@ btn-check:active {
 btn {
   background-color: black !important;
   border-color: #23ce6b !important;
+}
+
+.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-header {
+  border-bottom: none !important;
 }

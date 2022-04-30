@@ -67,7 +67,6 @@ function Leaderboard(props) {
   const [analytics, setAnalytics] = useState("Net Gains");
   const [rtl, setRtl] = useState(false);
   const [toggled, setToggled] = useState(false);
-  const intl = useIntl();
   const { logo_Degen } = props;
 
   const handleRtlChange = (checked) => {
