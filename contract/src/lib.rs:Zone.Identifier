@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://dev.azure.com/antisociallabs/RagingRhinos/_git/RagingRhinos.SmartContracts?path=/coin_flip/src/lib.rs
+HostUrl=https://dev.azure.com/antisociallabs/5958f907-9ad3-4a32-9f35-3cc4a4f82e45/_apis/git/repositories/00e24af0-2ce9-43dc-80a4-2ec83d6b933c/items?path=/coin_flip/src/lib.rs&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=main&resolveLfs=true&%24format=octetStream&api-version=5.0&download=true

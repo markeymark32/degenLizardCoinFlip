@@ -83,6 +83,7 @@ export function useNear() {
 
 export function useCoinFlip() {
   const context = useContext(NearContext);
+  console.log(context.contract);
   if (context === null) {
     throw new Error("useNear must be used within a NearProvider.");
   }

@@ -76,6 +76,8 @@ function Coinflip(props) {
     }, []);
 
     const Flip = async (amount) => {
+      console.log(amount);
+      console.log(sideSelected);
       coinFlip.play(amount, sideSelected);
     };
     
@@ -87,17 +89,18 @@ function Coinflip(props) {
           flexGrow: 1,
           bgcolor: "#1a1c24",
           height: "100vh",
-          display: "flex"
+          display: "flex",
+          width: "100%"
         }}
       >
         <Grid container align="center" justify="center" >
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
             <LizardNav logo={logo_Degen} handleToggleSidebar={handleToggleSidebar}/>
           </Grid>
           <Grid
             item
             style={{ backgroundColor: "#1d1d1d", maxWidth: "100%", top:"80px" }}
-            
+            xs={1} sm={3} md={3} lg={3} xl={3}
           >
             <RecentPlays rtl={rtl}
               toggled={toggled}
@@ -106,7 +109,7 @@ function Coinflip(props) {
           </Grid>
           <Grid
           item
-            xs={6}
+            xs={2} sm={3} md={4} lg={5} xl={6}
           >
             <h1 className="home-overlap-title-group proximanova-bold-white-28px-2">
               <span className="proximanova-bold-white-28px-22">
