@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import { ProSidebar, Menu, SidebarHeader, SidebarContent } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 import "../css/globals.css";
+import Box from "@mui/material/Box";
 
 function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
   const [recentPlays, setRecentPlays] = useState([]);
@@ -66,7 +67,7 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
 
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
-    padding: "20px",
+    padding: "10px",
     height: "100%",
     backgroundColor: "rgba(255, 255, 255, 0.1)",
     border: "2px solid #ffffff33",
@@ -78,23 +79,24 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
 
   return (
       <>
-    <div style={{ marginTop: "50px"}}>
-      <ProSidebar rtl={rtl}
-          toggled={toggled}
-          breakPoint="md"
-          onToggle={handleToggleSidebar}
-          width="270px"  >
-          
-        <SidebarHeader className="headerBorder">
+    <Box
+      sx={{
+        flexGrow: 1,
+        bgcolor: "rgba(var(--bs-dark-rgb)",
+        display: "flex",
+        flexDirection: "column"
+      }}
+    >
+        <div className="headerBorder">
           <div className="home-recent-plays proximanova-bold-white-22px">
               Recent plays
           </div>
-        </SidebarHeader>
-        <SidebarContent>
-          <Menu iconShape="square">
+        </div>
+     
+          
                           {recentPlays?.map((elm, index) => (
-                            <div >
-                              <Item sx={{ m: 2 }}>
+                           
+                              <Item sx={{ m: 1 }}>
                                 <p style={{ minHeight: "32px", width: "205px" }}>
                                   <span className="proximanova-bold-white-16px-3">
                                     {elm.accountId}
@@ -117,12 +119,9 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
                                 <span className="proximanova-light-white-16px-2">{elm.time}</span>
                                 </div>
                               </Item>
-                            </div>
+                            
                           ))}
-          </Menu>
-        </SidebarContent>
-      </ProSidebar>
-    </div>
+                          </Box>
           </>
   );
 }

@@ -100,11 +100,9 @@ function Coinflip(props) {
           <Grid
             item
             style={{ backgroundColor: "#1d1d1d", maxWidth: "100%", top:"80px" }}
-            xs={1} sm={3} md={3} lg={3} xl={3}
+            xs={1} sm={1} md={2} lg={3} xl={3}
           >
-            <RecentPlays rtl={rtl}
-              toggled={toggled}
-              handleToggleSidebar={handleToggleSidebar}/>
+            <RecentPlays />
               
           </Grid>
           <Grid
