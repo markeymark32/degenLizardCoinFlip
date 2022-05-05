@@ -6,6 +6,7 @@ import heads from "../assets/heads.svg";
 import tails from "../assets/tails.svg";
 import { coinSide, winStates } from "./coinFlipConstants";  
 import Slider from "@mui/material/Slider";
+import Box from "@mui/material/Box";
 
 const marks = [
     {
@@ -36,8 +37,9 @@ export default function CoinflipSelector({
     const [isHeads, setHeads] = useState("true");
     return (
             <>
+            <Box sx={{ alignItems: "center", alignContent: "center", justifyContent: "center"}}>
                 <div className="coinflip">
-                  <div className="frame-container">
+                  <div className="frame-container-1">
                     <img
                       className="frame"
                       src={heads}
@@ -72,7 +74,7 @@ export default function CoinflipSelector({
                       defaultValue={0.01}
                       getAriaValueText={valuetext}
                       step={0.1}
-                      valueLabelDisplay="on"
+                      valueLabelDisplay="off"
                       marks={marks}
                       max={10}
                       mine={0.1}
@@ -80,6 +82,7 @@ export default function CoinflipSelector({
                     />
                   </div>
                 </div>
+                </Box>
             </>    
                 );
 }

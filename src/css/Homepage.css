@@ -101,8 +101,6 @@
   align-items: flex-end;
   display: flex;
   height: 165px;
-  margin-left: auto;
-  min-width: 268px;
 }
 
 .frame-container {
@@ -131,7 +129,7 @@
 .frame-container-1 {
   align-items: flex-start;
   flex-direction: column;
-  margin-left: 76px;
+  margin-left: 46px;
   width: 96px;
   margin-top: 10px;
 }

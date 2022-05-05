@@ -93,14 +93,15 @@ function Coinflip(props) {
           width: "100%"
         }}
       >
-        <Grid container align="center" justify="center" >
-          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+        <Grid container align="center" >
+          <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
             <LizardNav logo={logo_Degen} handleToggleSidebar={handleToggleSidebar}/>
           </Grid>
           <Grid
             item
-            style={{ backgroundColor: "#1d1d1d", maxWidth: "100%", top:"80px" }}
-            xs={1} sm={1} md={2} lg={3} xl={3}
+            sx={{ backgroundColor: "#1d1d1d", top:"80px", display: { xs: 'none', sm: 'block' }  }}
+            md={2} lg={2} xl={2}
+            align="left"
           >
             <RecentPlays />
               
@@ -109,7 +110,8 @@ function Coinflip(props) {
           item
             xs={2} sm={3} md={4} lg={5} xl={6}
           >
-            <h1 className="home-overlap-title-group proximanova-bold-white-28px-2">
+          <Box sx={{ marginLeft: { xs: "0", md: "150px", lg: "230px"}, width: { xs: "405px", md: "500px"}, paddingTop: { xs: "0px", md: "20px"} }}>
+            <h1 className="proximanova-bold-white-28px-2">
               <span className="proximanova-bold-white-28px-22">
                 Welcome to{" "}
               </span>
@@ -118,7 +120,8 @@ function Coinflip(props) {
               </span>
               <span className="proximanova-bold-white-28px-22">Coin Flip!</span>
             </h1>
-            <div className="home-overlap-group10 border-1px-white-2">
+          </Box>
+            <Box bgcolor="#0000004c" direction="column" sx={{ alignItems: "center", width: "350px", top: "25px", borderRadius: "20px", marginLeft: { xs: "12px", md: "170px", lg: "250px"}, marginBottom: "25px", padding: "10px"}}>
                 <CoinflipSelector
                     sideSelected={sideSelected}
                     setSideSelected={setSideSelected}
@@ -127,16 +130,16 @@ function Coinflip(props) {
                     setWinState={setWinState}
                 />
                 <CoinFlipAction amount={deposit} onFlip={Flip} winState={winState} />
-            </div>
-              <div className="home-overlap-group9">
-                <h1 className="volume-flipped-6337320 proximanova-bold-white-28px-2">
+            </Box>
+              <Box sx={{ border: "2px solid white", borderRadius: "20px", width: "360px", marginLeft: { xs: "12px", md: "170px", lg: "250px"}, padding: "20px"}}>
+                <h1 className="proximanova-bold-white-28px-2">
                   <span className="proximanova-bold-white-28px-22">Volume: </span>
                   <span className="proximanova-bold-green-28px">
                     {numberWithCommas(volume)} Ⓝ
                   </span>
                 </h1>
-                <div className="rectangle-6"></div>
-              </div>
+                
+              </Box>
           </Grid>
         </Grid>
       </Box>
