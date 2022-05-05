@@ -112,7 +112,7 @@ const LizardNav = (props) => {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
-                backgroundColor: "#32262d"
+                backgroundColor: "#0000004c"
               }}
             >
               {pages.map((page) => (
