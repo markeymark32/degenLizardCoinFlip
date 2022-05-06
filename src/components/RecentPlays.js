@@ -1,9 +1,13 @@
-import React, { useState, useEffect, useHistory, useLocation } from "react";
-import Grid from "@mui/material/Grid";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import { ProSidebar, Menu, SidebarHeader, SidebarContent } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css';
+import {
+  ProSidebar,
+  Menu,
+  SidebarHeader,
+  SidebarContent
+} from "react-pro-sidebar";
+import "react-pro-sidebar/dist/css/styles.css";
 import "../css/globals.css";
 import Box from "@mui/material/Box";
 
@@ -74,55 +78,72 @@ function RecentPlays({ rtl, toggled, handleToggleSidebar }) {
     borderRadius: "10px",
     position: "relative",
     minHeight: "106px",
-    alignItems: "flex-end"
+    alignItems: "flex-end",
   }));
 
   return (
-      <>
-    <Box
-      sx={{
-        flexGrow: 1,
-        bgcolor: "rgba(var(--bs-dark-rgb)",
-        display: "flex",
-        flexDirection: "column"
-      }}
-    >
-        <div className="headerBorder">
-          <div className="home-recent-plays proximanova-bold-white-22px">
+    <>
+      <div
+        style={{
+          marginTop: "65px",
+        }}
+      >
+        <ProSidebar
+          rtl={rtl}
+          toggled={toggled}
+          breakPoint="md"
+          onToggle={handleToggleSidebar}
+          width="270px"
+        >
+          <SidebarHeader className="headerBorder">
+            <div className="home-recent-plays proximanova-bold-white-22px">
               Recent plays
-          </div>
-        </div>
-     
-          
-                          {recentPlays?.map((elm, index) => (
-                           
-                              <Item sx={{ m: 1 }}>
-                                <p style={{ minHeight: "32px", width: "205px" }}>
-                                  <span className="proximanova-bold-white-16px-3">
-                                    {elm.accountId}
-                                  </span>{" "}
-                                  <br />
-                                  <span className="proximanova-light-white-16px-2">flipped
-                                  {elm.amount} Ⓝ and{" "}</span>
-                                  {elm.outcome === "won" && (
-                                    <span className="proximanova-bold-green-16px-2">
-                                      {elm.outcome}.
-                                    </span>
-                                  )}
-                                  {elm.outcome === "lost" && (
-                                    <span className="proximanova-bold-coral-red-16px-2">
-                                      {elm.outcome} .
-                                    </span>
-                                  )}
-                                </p>
-                                <div style={{ textAlign: "right", minHeight: "14px" }}>
-                                <span className="proximanova-light-white-16px-2">{elm.time}</span>
-                                </div>
-                              </Item>
-                            
-                          ))}
-                          </Box>
-          </>
+            </div>
+          </SidebarHeader>
+          <SidebarContent>
+            <Menu iconShape="square">
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  bgcolor: "rgba(var(--bs-dark-rgb)",
+                  display: "flex",
+                  flexDirection: "column"
+                }}
+              >
+                {recentPlays?.map((elm, index) => (
+                  <Item sx={{ m: 1 }}>
+                    <p style={{ minHeight: "32px", width: "205px" }}>
+                      <span className="proximanova-bold-white-16px-3">
+                        {elm.accountId}{" "}
+                      </span>
+                      <span className="proximanova-light-white-16px-2">
+                        flipped
+                        {elm.amount} Ⓝ and{" "}
+                      </span>
+                      {elm.outcome === "won" && (
+                        <span className="proximanova-bold-green-16px-2">
+                          {elm.outcome}.
+                        </span>
+                      )}
+                      {elm.outcome === "lost" && (
+                        <span className="proximanova-bold-coral-red-16px-2">
+                          {elm.outcome} .
+                        </span>
+                      )}
+                    </p>
+                    <div style={{ textAlign: "right", minHeight: "14px" }}>
+                      <span className="proximanova-light-white-16px-2">
+                        {elm.time}
+                      </span>
+                    </div>
+                  </Item>
+                ))}
+              </Box>
+            </Menu>
+          </SidebarContent>
+        </ProSidebar>
+      </div>
+    </>
   );
 }
 export default RecentPlays;

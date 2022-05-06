@@ -4,9 +4,11 @@ import "../css/Leaderboard.css";
 import RecentPlays from "./RecentPlays";
 import Button from "@mui/material/Button";
 import LizardNav from "./LizardNav";
-import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
 
 function Leaderboard(props) {
   const LeadTypes = [
@@ -191,17 +193,54 @@ function Leaderboard(props) {
       .finally(() => setIsLoadingStats(false));
   }, [auxStats]);
 
+  const Title = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    textAlign: "left",
+    padding: "10px",
+    backgroundColor: "inherit",
+    boxShadow: "none",
+    color: "white",
+    fontSize: "28px",
+    fontFamily: "Proxima Nova-Extrabold, Helvetica",
+    fontWeight: 700,
+    overflowWrap: "break-word",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "24px"
+    }
+  }));
+
+  const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    alignItems: "center",
+    backgroundColor: "#3c3c3c",
+    borderRadius: "10px",
+    border: "2px solid #ffffff33",
+    display: "flex",
+    height: "120px",
+    padding: "21px 0",
+    width: "320px",
+    display: "inline-grid"
+  }));
+
+  const Buttons = styled(Button)(({ theme }) => ({
+    borderRadius: "10px",
+    border: "1px solid white"
+  }));
+
   return (
     <div
       id="app"
       className={`app ${rtl ? "rtl" : ""} ${toggled ? "toggled" : ""}`}
     >
       <Box
+        container
+        spacing={2}
         sx={{
           flexGrow: 1,
           bgcolor: "#1a1c24",
           height: "100vh",
-          display: "flex"
+          display: "flex",
+          width: "100%"
         }}
       >
         <Grid container>
@@ -218,133 +257,126 @@ function Leaderboard(props) {
               handleToggleSidebar={handleToggleSidebar}
             />
           </Grid>
-          <Grid
-            item
-            alignItems="center"
-            justifyContent="center"
-            style={{ minHeight: "100vh" }}
-          >
-            <div className="degen_stats">
-              <h1 className="title proximanova-bold-white-28px-22">
-                <span className="proximanova-bold-green-28px">
-                  DEGEN Lizards
-                </span>{" "}
-                Coin Flip
-              </h1>
-              <div className="flex-row">
-                <div className="statCta">
-                  <Button
-                    onClick={() =>
-                      setAuxStats({ selected: "all", timestamp: 0 })
-                    }
-                    value="all"
-                    className={`${
-                      auxStats.selected === "all" ? "active green" : "black"
-                    }`}
-                  >
-                    <div className="proximanova-bold-white-14px">All</div>
-                  </Button>
-                </div>
-                <div className="statCta">
-                  <Button
-                    onClick={() =>
-                      setAuxStats({
-                        selected: "current_month",
-                        timestamp: getMonthTimestamp()
-                      })
-                    }
-                    value="current_month"
-                    className={`${
-                      auxStats.selected === "current_month"
-                        ? "active green"
-                        : "black"
-                    }`}
-                  >
-                    <div className="proximanova-bold-white-14px">
-                      Current Month
-                    </div>
-                  </Button>
-                </div>
-                <div className="statCta">
-                  <Button
-                    onClick={() =>
-                      setAuxStats({
-                        selected: "current_day",
-                        timestamp: getDayTimestamp()
-                      })
-                    }
-                    value="current_day"
-                    className={`${
-                      auxStats.selected === "current_day"
-                        ? "active green"
-                        : "black"
-                    }`}
-                  >
-                    <div className="proximanova-bold-white-14px">
-                      Current Day
-                    </div>
-                  </Button>
-                </div>
+          <Grid item xs={8}>
+            <Title>
+              <span style={{ color: "#23ce6b" }}>DEGEN Lizard</span> Coin Flip
+            </Title>
+            <Box sx={{ "& button": { m: 1 } }}>
+              <div>
+                <Buttons
+                  variant="outlined"
+                  size="sm"
+                  onClick={() => setAuxStats({ selected: "all", timestamp: 0 })}
+                  value="all"
+                  className={`${
+                    auxStats.selected === "all" ? "active green" : "inherit"
+                  }`}
+                >
+                  <div className="proximanova-bold-white-14px">All</div>
+                </Buttons>
+
+                <Buttons
+                  variant="outlined"
+                  size="sm"
+                  onClick={() =>
+                    setAuxStats({
+                      selected: "current_month",
+                      timestamp: getMonthTimestamp()
+                    })
+                  }
+                  value="current_month"
+                  className={`${
+                    auxStats.selected === "current_month"
+                      ? "active green"
+                      : "inherit"
+                  }`}
+                >
+                  <div className="proximanova-bold-white-14px">
+                    Current Month
+                  </div>
+                </Buttons>
+
+                <Buttons
+                  variant="outlined"
+                  size="sm"
+                  onClick={() =>
+                    setAuxStats({
+                      selected: "current_day",
+                      timestamp: getDayTimestamp()
+                    })
+                  }
+                  value="current_day"
+                  className={`${
+                    auxStats.selected === "current_day"
+                      ? "active green"
+                      : "inherit"
+                  }`}
+                >
+                  <div className="proximanova-bold-white-14px">Current Day</div>
+                </Buttons>
               </div>
-              <div className="flex-row-1">
-                <div className="stats-container">
-                  <div className="stats ">
-                    <div className="total-flips proximanova-bold-white-16px-3">
-                      Total Flips
-                    </div>
-                    <div className="text-1 proximanova-bold-green-28px ">
-                      <h1>{formatNumber(stats.total_flips)}</h1>
-                    </div>
-                  </div>
-                  <div className="stats-1 ">
-                    <div className="total-loss proximanova-bold-white-16px-3">
-                      Total Loss
-                    </div>
-                    <div className="text-1 proximanova-bold-green-28px ">
-                      <h1>{formatNumber(stats.total_loss)}</h1>
-                    </div>
-                  </div>
+            </Box>
+            <Stack
+              sx={{ textAlign: "center" }}
+              m={2}
+              spacing={2}
+              direction={{ xs: "column", md: "row" }}
+            >
+              <Item>
+                <div className="proximanova-bold-white-16px-3">Total Flips</div>
+                <div className="proximanova-bold-green-28px ">
+                  <h1>{formatNumber(stats.total_flips)}</h1>
                 </div>
-                <div className="stats-container-1">
-                  <div className="stats-2 ">
-                    <div className="total-won proximanova-bold-white-16px-3">
-                      Total Won
-                    </div>
-                    <div className="text-3 proximanova-bold-green-28px ">
-                      <h1>{formatNumber(stats.total_won)}</h1>
-                    </div>
-                  </div>
-                  <div className="stats-3 ">
-                    <div className="total-volume proximanova-bold-white-16px-3">
-                      Total Volume
-                    </div>
-                    <div className="text-4 proximanova-bold-green-28px">
-                      <h1>{formatNumber(stats.total_volume)}</h1>
-                    </div>
-                  </div>
+              </Item>
+              <Item>
+                <div className="proximanova-bold-white-16px-3">Total Loss</div>
+                <div className="proximanova-bold-green-28px ">
+                  <h1>{formatNumber(stats.total_loss)}</h1>
                 </div>
-              </div>
-            </div>
-            <div className="leaderboard-1">
-              <div className="leaderboard-2 proximanova-bold-white-28px-22">
-                Leaderboard
-              </div>
-              <div className="flex-row">
-                <div className="statCta">
-                  <Button
+              </Item>
+            </Stack>
+            <Stack
+              sx={{ textAlign: "center" }}
+              spacing={2}
+              m={2}
+              direction={{ xs: "column", md: "row" }}
+            >
+              <Item>
+                <div className="proximanova-bold-white-16px-3">Total Won</div>
+                <div className=" proximanova-bold-green-28px ">
+                  <h1>{formatNumber(stats.total_won)}</h1>
+                </div>
+              </Item>
+              <Item>
+                <div className="proximanova-bold-white-16px-3">
+                  Total Volume
+                </div>
+                <div className="proximanova-bold-green-28px">
+                  <h1>{formatNumber(stats.total_volume)}</h1>
+                </div>
+              </Item>
+            </Stack>
+            <Stack>
+              <Title>Leaderboard</Title>
+              <Box sx={{ "& button": { m: 1 } }}>
+                <div>
+                  <Buttons
+                    variant="outlined"
+                    size="sm"
                     onClick={() => {
                       setMonthTimestamp(0);
                       setSelectedTime("all");
                     }}
                     className={`${
-                      selectedTime === "all" ? "active green" : "black"
+                      selectedTime === "all" ? "active green" : "inherit"
                     }`}
                   >
                     <div className="proximanova-bold-white-14px">All</div>
-                  </Button>
-                </div>
-                <div className="statCta">
-                  <Button
+                  </Buttons>
+
+                  <Buttons
+                    variant="outlined"
+                    size="sm"
                     onClick={() => {
                       setMonthTimestamp(getMonthTimestamp);
                       setSelectedTime("current_month");
@@ -352,46 +384,52 @@ function Leaderboard(props) {
                     className={`${
                       selectedTime === "current_month"
                         ? "active green"
-                        : "black"
+                        : "inherit"
                     }`}
                   >
                     <div className="proximanova-bold-white-14px">
                       Current Month
                     </div>
-                  </Button>
-                </div>
-                <div className="statCta">
-                  <Button
+                  </Buttons>
+
+                  <Buttons
+                    variant="outlined"
+                    size="sm"
                     onClick={() => {
                       setMonthTimestamp(getDayTimestamp);
                       setSelectedTime("current_day");
                     }}
                     className={`${
-                      selectedTime === "current_day" ? "active green" : "black"
+                      selectedTime === "current_day"
+                        ? "active green"
+                        : "inherit"
                     }`}
                   >
                     <div className="proximanova-bold-white-14px">
                       Current Day
                     </div>
-                  </Button>
+                  </Buttons>
+
+                  <select
+                    className="proximanova-bold-white-14px"
+                    style={{
+                      color: "white",
+                      backgroundColor: "inherit",
+                      border: "1px solid white",
+                      borderRadius: "10px",
+                      padding: "7px"
+                    }}
+                    value={analytics}
+                    onChange={handleChange}
+                  >
+                    <option>Net Gains</option>
+                    <option>Win Streaks</option>
+                    <option>Loss Streaks</option>
+                    <option>Volume</option>
+                  </select>
                 </div>
-                <div className="filter">
-                  <div className="net-gains">
-                    <select
-                      className="selectpicker statCta proximanova-bold-white-14px"
-                      style={{backgroundColor: "#3c3c3c", border: "2px solid", borderColor: "white"}}
-                      value={analytics}
-                      onChange={handleChange}
-                    >
-                      <option>Net Gains</option>
-                      <option>Win Streaks</option>
-                      <option>Loss Streaks</option>
-                      <option>Volume</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <Grid item xs={9}>
+              </Box>
+              <Grid item xs={8}>
                 {selectedLeadboard.value === "net_gains" &&
                   leadNetGain.map((lead, index) => (
                     <>
@@ -431,7 +469,7 @@ function Leaderboard(props) {
                     />
                   ))}
               </Grid>
-            </div>
+            </Stack>
           </Grid>
         </Grid>
       </Box>

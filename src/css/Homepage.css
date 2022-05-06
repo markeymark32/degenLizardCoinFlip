@@ -150,7 +150,6 @@
 .select-the-amount-to-flip {
   letter-spacing: 0;
   margin-right: 6px;
-  margin-top: 30px;
   min-height: 16px;
   min-width: 198px;
   text-align: center;
@@ -180,7 +179,6 @@
   display: flex;
   height: 38px;
   margin-left: 5px;
-  margin-top: 50px;
   min-width: auto;
   padding: 0 34px;
 }
@@ -205,7 +203,7 @@
   color: #23ce6b !important;
 }
 
-.css-yafthl-MuiSlider-markLabel{
+.css-yafthl-MuiSlider-markLabel {
   color: #23ce6b !important;
 }
 
@@ -233,7 +231,11 @@
   border-color: #23ce6b !important;
 }
 
-btn-check:active+.btn-primary, .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
+btn-check:active + .btn-primary,
+.btn-check:checked + .btn-primary,
+.btn-primary.active,
+.btn-primary:active,
+.show > .btn-primary.dropdown-toggle {
   background-color: #23ce6b !important;
   border-color: #23ce6b !important;
 }
@@ -251,3 +253,10 @@ btn {
 .pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-header {
   border-bottom: none !important;
 }
+
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  position: relative !important;
+  left: 0px !important;
+}
+
+

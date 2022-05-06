@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useNear } from "../near";
-import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -11,24 +10,70 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { styled, alpha } from '@mui/material/styles';
+import Link from "@mui/material/Link";
 
 const LizardNav = (props) => {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const near = useNear();
-    const pages = [<a href="/">Coin Flip</a>, <a href="/leaderboard">Leaderboard</a>];
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const near = useNear();
+  const pages = [
+    <Link href="/" style={{ color: "white",fontSize: "16px",
+    fontFamily: "Proxima Nova-Extrabold, Helvetica",
+    fontWeight: 700, }}>
+      Homepage
+    </Link>,
+    <Link href="/leaderboard" style={{ color: "white",fontSize: "16px",
+    fontFamily: "Proxima Nova-Extrabold, Helvetica",
+    fontWeight: 700, }}>
+      Leaderboard
+    </Link>
+  ];
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
-    return (
-            <AppBar
+  const StyledMenu = styled((props) => (
+    <Menu 
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left"
+      }}
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "left"
+      }} {...props}
+      />
+  ))(({ theme }) => ({
+    '& .MuiPaper-root': {
+      backgroundColor: "black"
+    },
+    '& .MuiMenuItem-root': {
+      '& .MuiSvgIcon-root': {
+        backgroundColor: "black"
+      },
+    '&:active': {
+        backgroundColor: alpha(
+          theme.palette.primary.main,
+          theme.palette.action.selectedOpacity,
+        ),
+      },
+    },
+  }
+));
+
+  return (
+    <AppBar
       position="static"
-      style={{ backgroundColor: "#0000004c", boxShadow: "none", paddingBottom: "10px" }}
+      style={{
+        backgroundColor: "#0000004c",
+        boxShadow: "none",
+        paddingBottom: "10px"
+      }}
     >
       <Container>
         <Toolbar disableGutters>
@@ -36,7 +81,7 @@ const LizardNav = (props) => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", md: "flex" }, paddingLeft: "5px"}}
+            sx={{ display: { xs: "none", md: "flex" }, paddingLeft: "5px" }}
           >
             <img className="logo_degen" alt="Degen_Logo" src={props.logo} />
           </Typography>
@@ -48,13 +93,18 @@ const LizardNav = (props) => {
           >
             <img className="logo_degen" alt="Degen_Logo" src={props.logo} />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" },  justifyContent: "right" }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "right"
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{
-                  
                   color: "white",
                   display: "block",
                   fontFamily: "Pixeloid Sans-Bold",
@@ -64,30 +114,40 @@ const LizardNav = (props) => {
                 {page}
               </Button>
             ))}
-          
-          {near.isLoggedIn ? (
-                                    <Button
-                                    style={{ background: "#23ce6b", cornerRadius: 0 }}
-                                    variant="secondary"
-                                    size="sm"
-                                    onClick={near.signOut}
-                                    >
-                                    <b>{near.accountId}</b>
-                                    </Button>
-                                ) : (
-                                    <Button
-                                    style={{ background: "#23ce6b", cornerRadius: 0 }}
-                                    variant="secondary"
-                                    size="sm"
-                                    onClick={near.signIn}
-                                    >
-                                    <b>Connect Wallet</b>
-                                    </Button>
-                                )}
+
+            {near.isLoggedIn ? (
+              <Button
+                style={{ background: "#23ce6b", cornerRadius: 0 }}
+                variant="secondary"
+                size="sm"
+                onClick={near.signOut}
+              >
+                <b>{near.accountId}</b>
+              </Button>
+            ) : (
+              <Button
+                style={{ background: "#23ce6b", cornerRadius: 0 }}
+                variant="secondary"
+                size="sm"
+                onClick={near.signIn}
+              >
+                <b>Connect Wallet</b>
+              </Button>
+            )}
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 3, display: { xs: "flex", md: "none" } }}>
             <IconButton
-              size="large"
+              size="sm"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={() => props.handleToggleSidebar(true)}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <IconButton
+              size="sm"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
@@ -96,7 +156,7 @@ const LizardNav = (props) => {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
+            <StyledMenu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -110,10 +170,6 @@ const LizardNav = (props) => {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-                backgroundColor: "#32262d"
-              }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
@@ -122,32 +178,32 @@ const LizardNav = (props) => {
               ))}
               <Box sx={{ flexGrow: 0 }}>
                 <MenuItem key="wallet" onClick={handleCloseNavMenu}>
-                    {near.isLoggedIn ? (
-                                    <Button
-                                    style={{ background: "#23ce6b", cornerRadius: 0 }}
-                                    variant="secondary"
-                                    size="sm"
-                                    onClick={near.signOut}
-                                    >
-                                    <b>{near.accountId}</b>
-                                    </Button>
-                                ) : (
-                                    <Button
-                                    style={{ background: "#23ce6b", cornerRadius: 0 }}
-                                    variant="secondary"
-                                    size="sm"
-                                    onClick={near.signIn}
-                                    >
-                                    <b>Connect Wallet</b>
-                                    </Button>
-                                )}
+                  {near.isLoggedIn ? (
+                    <Button
+                      style={{ background: "#23ce6b", cornerRadius: 0 }}
+                      variant="secondary"
+                      size="sm"
+                      onClick={near.signOut}
+                    >
+                      <b>{near.accountId}</b>
+                    </Button>
+                  ) : (
+                    <Button
+                      style={{ background: "#23ce6b", cornerRadius: 0 }}
+                      variant="secondary"
+                      size="sm"
+                      onClick={near.signIn}
+                    >
+                      <b>Connect Wallet</b>
+                    </Button>
+                  )}
                 </MenuItem>
               </Box>
-            </Menu>
+            </StyledMenu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
-        )
-    }
+  );
+};
 export default LizardNav;
