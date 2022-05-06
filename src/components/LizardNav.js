@@ -12,15 +12,16 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { styled, alpha } from '@mui/material/styles';
 import Link from "@mui/material/Link";
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const LizardNav = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const near = useNear();
   const pages = [
-    <Link href="/" style={{ color: "white",fontSize: "16px",
+    <Link href="/" style={{ color: "#23ce6b",fontSize: "16px",
     fontFamily: "Proxima Nova-Extrabold, Helvetica",
     fontWeight: 700, }}>
-      Homepage
+      Coin Flip
     </Link>,
     <Link href="/leaderboard" style={{ color: "white",fontSize: "16px",
     fontFamily: "Proxima Nova-Extrabold, Helvetica",
@@ -144,7 +145,7 @@ const LizardNav = (props) => {
               onClick={() => props.handleToggleSidebar(true)}
               color="inherit"
             >
-              <MenuIcon />
+              <AccessTimeIcon sx={{color: "#23ce6b"}}/>
             </IconButton>
             <IconButton
               size="sm"
